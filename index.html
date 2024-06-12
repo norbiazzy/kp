@@ -303,190 +303,191 @@
   </style>
 </head>
 
-<body>
-  <h1>Калькулятор блоков</h1>
+<h1>Калькулятор блоков</h1>
 
-  <div class="calc">
-    <div class="calc__density">
-      <button class="btn" data-density="D400">D400</button>
-      <button class="btn" data-density="D500">D500</button>
-      <button class="btn" data-density="D600">D600</button>
+<div class="calc">
+  <div class="calc__density">
+    <button class="btn" data-density="D400">D400</button>
+    <button class="btn" data-density="D500">D500</button>
+    <button class="btn" data-density="D600">D600</button>
+  </div>
+  <div class="calc__lenght">
+    <button class="btn" data-lenght="600">600</button>
+    <button class="btn" data-lenght="625">625</button>
+  </div>
+  <div class="calc__width">
+    <div>
+      <button class="btn" data-width="400">400</button>
+      <button class="btn" data-width="375">375</button>
+      <button class="btn" data-width="350">350</button>
     </div>
-    <div class="calc__lenght">
-      <button class="btn" data-lenght="600">600</button>
-      <button class="btn" data-lenght="625">625</button>
+    <div>
+      <button class="btn" data-width="300">300</button>
+      <button class="btn" data-width="250">250</button>
+      <button class="btn" data-width="200">200</button>
     </div>
-    <div class="calc__width">
-      <div>
-        <button class="btn" data-width="400">400</button>
-        <button class="btn" data-width="375">375</button>
-        <button class="btn" data-width="350">350</button>
-      </div>
-      <div>
-        <button class="btn" data-width="300">300</button>
-        <button class="btn" data-width="250">250</button>
-        <button class="btn" data-width="200">200</button>
-      </div>
-      <div>
-        <button class="btn" data-width="150">150</button>
-        <button class="btn" data-width="100">100</button>
-        <button class="btn" data-width="50">50</button>
-      </div>
+    <div>
+      <button class="btn" data-width="150">150</button>
+      <button class="btn" data-width="100">100</button>
+      <button class="btn" data-width="50">50</button>
     </div>
-    <div class="calc__height">
-      <button class="btn" data-height="250">250</button>
-      <button class="btn" data-height="200">200</button>
+  </div>
+  <div class="calc__height">
+    <button class="btn" data-height="250">250</button>
+    <button class="btn" data-height="200">200</button>
+  </div>
+  <div class="calc__factory hide">
+    <label> Дмитров/Электросталь <input class="input__radio" type="radio" name="factory" value="DZGI" checked>
+    </label>
+    <label> Старая Купавна <input class="input__radio" type="radio" name="factory" value="SK">
+    </label>
+    <label> Малоярославец <input class="input__radio" type="radio" name="factory" value="MY">
+    </label>
+  </div>
+  <div class="calc__cube">
+    <div class="calc_item">
+      <label for="cube">Кубы</label>
+      <input class="input__number" type="number" name="cube">
     </div>
-    <div id="coppy">
-      <div class="result"></div>
-      <div class="resultLogistics"></div>
-      <div class="resultTotal"></div>
+    <div class="calc_item">
+      <label for="pieces">Штуки</label>
+      <input class="input__number" type="number" name="pieces">
     </div>
-    <button class="btn btn_log btn_yellow" onclick="copy('coppy')">Скопировать</button>
-    <div class="calc__factory hide">
-      <label> Дмитров/Электросталь <input class="input__radio" type="radio" name="factory" value="DZGI" checked>
-      </label>
-      <label> Старая Купавна <input class="input__radio" type="radio" name="factory" value="SK">
-      </label>
-      <label> Малоярославец <input class="input__radio" type="radio" name="factory" value="MY">
-      </label>
+    <div class="calc_item">
+      <label for="pallets">Палеты</label>
+      <input class="input__number" type="number" name="pallets">
     </div>
-    <div class="calc__cube">
-      <div class="calc_item">
-        <label for="cube">Кубы</label>
-        <input class="input__number" type="number" name="cube">
-      </div>
-      <div class="calc_item">
-        <label for="pieces">Штуки</label>
-        <input class="input__number" type="number" name="pieces">
-      </div>
-      <div class="calc_item">
-        <label for="pallets">Палеты</label>
-        <input class="input__number" type="number" name="pallets">
-      </div>
-    </div>
+  </div>
 
-    <div class="calc__price">
-      <div class="calc__price-inner">
-        <button data-btnsetprice="5880">5880</button>
-        <button data-btnsetprice="5900">5900</button>
-        <button data-btnsetprice="5980">5980</button>
-        <button data-btnsetprice="6000">6000</button>
-        <button data-btnsetprice="6100">6100</button>
-        <button data-btnsetprice="6077">6077</button>
-        <button data-btnsetprice="6500">6500</button>
-        <button data-btnsetprice="6600">6600</button>
-        <button data-btnsetprice="6600">6975</button>
+  <div class="calc__price">
+    <div class="calc__price-inner">
+      <button data-btnsetprice="5880">5880</button>
+      <button data-btnsetprice="5900">5900</button>
+      <button data-btnsetprice="5980">5980</button>
+      <button data-btnsetprice="6000">6000</button>
+      <button data-btnsetprice="6100">6100</button>
+      <button data-btnsetprice="6077">6077</button>
+      <button data-btnsetprice="6500">6500</button>
+      <button data-btnsetprice="6600">6600</button>
+      <button data-btnsetprice="6600">6975</button>
 
-      </div>
-      <div class="calc_item">
-        <label>
-          Цена:
-        </label>
-        <input class="input__number" type="number" name="price">
-
-      </div>
+    </div>
+    <div class="calc_item">
       <label>
-        C НДС:
-        <input type="checkbox" name="NC">
+        Цена:
       </label>
-      <input class="input__number hide" type="number" disabled min="3" value="3" step="0.5" name="NCPersent">
+      <input class="input__number" type="number" name="price">
+
     </div>
-    <button id="btnAddRow">Добавить блок</button>
+    <label>
+      C НДС:
+      <input type="checkbox" name="NC">
+    </label>
+    <input class="input__number hide" type="number" disabled min="3" value="3" step="0.5" name="NCPersent">
+  </div>
+  <button class="btn" id="btnAddRow">Добавить блок</button>
 
-    <div class="calc__logistics">
-      <div class="calc_item">
-        <label for="km">Км</label>
-        <input class="input__number" type="number" name="km">
+  <div class="calc__logistics">
+    <div class="calc_item">
+      <label for="km">Км</label>
+      <input class="input__number" type="number" name="km">
 
-      </div>
-      <button class="btn btn_log" data-typeLogistics="glory">Триумф</button>
-      <button class="btn btn_log" data-typeLogistics="tiana">Тиана</button>
-      <button class="btn btn_log" data-typeLogistics="my">Своя</button>
-      <!-- <label>
-        <p>Триумф</p>
-        <input type="radio" name="typeLogistics" value="glory" checked>
-      </label>
-      <label>
-        <p>Тиана</p>
-        <input type="radio" name="typeLogistics" value="tiana">
-      </label>
-      <label>
-        <p>Своя</p>
-        <input type="radio" name="typeLogistics" value="my">
-      </label> -->
+    </div>
+    <button class="btn btn_log" data-typeLogistics="glory">Триумф</button>
+    <button class="btn btn_log" data-typeLogistics="tiana">Тиана</button>
+    <button class="btn btn_log" data-typeLogistics="my">Своя</button>
+    <!-- <label>
+      <p>Триумф</p>
+      <input type="radio" name="typeLogistics" value="glory" checked>
+    </label>
+    <label>
+      <p>Тиана</p>
+      <input type="radio" name="typeLogistics" value="tiana">
+    </label>
+    <label>
+      <p>Своя</p>
+      <input type="radio" name="typeLogistics" value="my">
+    </label> -->
+    <div>
+      <p>Доставка фурой: </p>
       <div>
-        <p>Доставка фурой: </p>
-        <div>
-          <span>Количество:</span>
-          <span class="counter">
-            <button data-logisticsRemove="truck">-</button>
-            <span data-truckCount="0">0</span>
-            <button data-logisticsAdd='truck'>+</button>
-          </span>
-          <div class="calc_item">
-            <p>Цена:</p>
-            <input class="input__number" data-logicstics="truck" type="number">
+        <span>Количество:</span>
+        <span class="counter">
+          <button data-logisticsRemove="truck">-</button>
+          <span data-truckCount="0">0</span>
+          <button data-logisticsAdd='truck'>+</button>
+        </span>
+        <div class="calc_item">
+          <p>Цена:</p>
+          <input class="input__number" data-logicstics="truck" type="number">
 
-          </div>
         </div>
-        <p>Доставка манипулятором:</p>
-        <div>
-          <span>Количество:</span>
-          <span class="counter">
-            <button data-logisticsRemove="manipulator">-</button>
-            <span data-manipulatorCount="0">0</span>
-            <button data-logisticsAdd='manipulator'>+</button>
-          </span>
-          <div class="calc_item">
-            <p>Цена:</p>
-            <input class="input__number" data-logicstics="manipulator" type="number">
-          </div>
+      </div>
+      <p>Доставка манипулятором:</p>
+      <div>
+        <span>Количество:</span>
+        <span class="counter">
+          <button data-logisticsRemove="manipulator">-</button>
+          <span data-manipulatorCount="0">0</span>
+          <button data-logisticsAdd='manipulator'>+</button>
+        </span>
+        <div class="calc_item">
+          <p>Цена:</p>
+          <input class="input__number" data-logicstics="manipulator" type="number">
         </div>
-        <span>Доставка манипулятором с прицепом:</span>
-        <div>
-          <span>Количество:</span>
-          <span class="counter">
-            <button data-logisticsRemove="hitch">-</button>
-            <span data-hitchCount="0">0</span>
-            <button data-logisticsAdd='hitch'>+</button>
-          </span>
-          <div class="calc_item">
-            <p>Цена:</p>
-            <input class="input__number" data-logicstics="hitch" type="number">
-          </div>
+      </div>
+      <span>Доставка манипулятором с прицепом:</span>
+      <div>
+        <span>Количество:</span>
+        <span class="counter">
+          <button data-logisticsRemove="hitch">-</button>
+          <span data-hitchCount="0">0</span>
+          <button data-logisticsAdd='hitch'>+</button>
+        </span>
+        <div class="calc_item">
+          <p>Цена:</p>
+          <input class="input__number" data-logicstics="hitch" type="number">
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 
+  <div id="coppy">
+    <ul class="result"></ul>
+    <ul class="resultLogistics"></ul>
+    <div class="resultTotal"></div>
+  </div>
+  <button class="btn btn_log btn_yellow" onclick="copy('coppy')">Скопировать</button>
+  <button class="btn btn_log btn_red" onclick="reload()">Очистить</button>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   <script>let a;
     let logisticsPrice = {
       glory: {
