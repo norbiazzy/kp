@@ -4,1059 +4,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- <link rel="stylesheet" href="./reset.css" /> -->
-  <!-- <link rel="stylesheet" href="./main.css" /> -->
+  <link rel="stylesheet" href="./reset.css" />
+  <link rel="stylesheet" href="./main.css" />
   <title>КП</title>
-  <style>
-    /* http://meyerweb.com/eric/tools/css/reset/ 
-    v2.0 | 20110126
-    License: none (public domain)
- */
-
-    html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    u,
-    i,
-    center,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td,
-    article,
-    aside,
-    canvas,
-    details,
-    embed,
-    figure,
-    figcaption,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    output,
-    ruby,
-    section,
-    summary,
-    time,
-    mark,
-    audio,
-    video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-    }
-
-    /* HTML5 display-role reset for older browsers */
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    section {
-      display: block;
-    }
-
-    body {
-      line-height: 1;
-    }
-
-    ol,
-    ul {
-      list-style: none;
-    }
-
-    blockquote,
-    q {
-      quotes: none;
-    }
-
-    blockquote:before,
-    blockquote:after,
-    q:before,
-    q:after {
-      content: '';
-      content: none;
-    }
-
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-
-    body {
-      margin: auto;
-      padding: 0 15px;
-      overflow-x: hidden;
-      font-family: sans-serif;
-      max-width: 350px;
-    }
-
-    h1 {
-      padding: 15px 0;
-      font-size: 24px;
-      text-align: center;
-    }
-
-    .calc__density {
-      padding: 5px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .calc__lenght {
-      padding: 5px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .calc__width {
-      padding: 5px;
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-    }
-
-    .calc__height {
-      padding: 5px;
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-    }
-
-    .form_radio_btn {
-      display: inline-block;
-      margin-right: 10px;
-    }
-
-    .form_radio_btn input[type=radio] {
-      display: none;
-    }
-
-    .form_radio_btn label {
-      display: inline-block;
-      cursor: pointer;
-      padding: 0px 15px;
-      line-height: 34px;
-      border: 1px solid #999;
-      border-radius: 6px;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      margin: 5px;
-      width: 70px;
-      border: 2px solid #000000;
-      border-radius: 5px;
-    }
-
-    .btn_log {
-      width: 100%;
-      margin: 0 0 5px 0;
-    }
-
-    .btn_yellow {
-      background-color: yellow;
-    }
-
-    .btn_red {
-      background-color: red;
-    }
-
-    .btn.active {
-      background-color: #11ff00;
-    }
-
-    .btn.disable {
-      background-color: #11ff00;
-    }
-
-    .input__number {
-      background-color: #eee;
-      vertical-align: top;
-      outline: none;
-      padding: 0;
-      height: 40px;
-      line-height: 40px;
-      text-indent: 10px;
-      display: inline-block;
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid #ddd;
-      font-size: 14px;
-      border-radius: 3px;
-    }
-
-    .input__number_result {
-      display: inline;
-      width: 49%;
-      font-size: 14px;
-    }
-
-    input[type=number]:focus {
-      outline: 2px solid blue;
-    }
-
-    .calc_item {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .calc_item input {
-      width: auto;
-    }
-
-    .calc__price-inner {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .calc__price-inner button {
-      padding: 10px;
-    }
-
-    #btnAddRow {
-      margin: 0;
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: blue;
-      color: white;
-    }
-
-    .hide {
-      width: 0;
-      height: 0;
-      opacity: 0;
-      display: none;
-    }
-
-    .w-0 {
-      position: absolute;
-      top: -100%;
-    }
-
-    /*# sourceMappingURL=main.css.map */
-  </style>
 </head>
 
-<h1>Калькулятор блоков</h1>
+<body>
+  <h1>Калькулятор блоков</h1>
 
-<div class="calc">
-  <div class="calc__density">
-    <button class="btn" data-density="D400">D400</button>
-    <button class="btn" data-density="D500">D500</button>
-    <button class="btn" data-density="D600">D600</button>
-  </div>
-  <div class="calc__lenght">
-    <button class="btn" data-lenght="600">600</button>
-    <button class="btn" data-lenght="625">625</button>
-  </div>
-  <div class="calc__width">
-    <div>
-      <button class="btn" data-width="400">400</button>
-      <button class="btn" data-width="375">375</button>
-      <button class="btn" data-width="350">350</button>
+  <div class="calc">
+    <div class="calc__density">
+      <button class="btn" data-density="D400">D400</button>
+      <button class="btn" data-density="D500">D500</button>
+      <button class="btn" data-density="D600">D600</button>
     </div>
-    <div>
-      <button class="btn" data-width="300">300</button>
-      <button class="btn" data-width="250">250</button>
-      <button class="btn" data-width="200">200</button>
+    <div class="calc__lenght">
+      <button class="btn" data-lenght="600">600</button>
+      <button class="btn" data-lenght="625">625</button>
     </div>
-    <div>
-      <button class="btn" data-width="150">150</button>
-      <button class="btn" data-width="100">100</button>
-      <button class="btn" data-width="50">50</button>
+    <div class="calc__width">
+      <div>
+        <button class="btn" data-width="400">400</button>
+        <button class="btn" data-width="375">375</button>
+        <button class="btn" data-width="350">350</button>
+      </div>
+      <div>
+        <button class="btn" data-width="300">300</button>
+        <button class="btn" data-width="250">250</button>
+        <button class="btn" data-width="200">200</button>
+      </div>
+      <div>
+        <button class="btn" data-width="150">150</button>
+        <button class="btn" data-width="100">100</button>
+        <button class="btn" data-width="50">50</button>
+      </div>
     </div>
-  </div>
-  <div class="calc__height">
-    <button class="btn" data-height="250">250</button>
-    <button class="btn" data-height="200">200</button>
-  </div>
-  <div class="calc__factory hide">
-    <label> Дмитров/Электросталь <input class="input__radio" type="radio" name="factory" value="DZGI" checked>
-    </label>
-    <label> Старая Купавна <input class="input__radio" type="radio" name="factory" value="SK">
-    </label>
-    <label> Малоярославец <input class="input__radio" type="radio" name="factory" value="MY">
-    </label>
-  </div>
-  <div class="calc__cube">
-    <div class="calc_item">
-      <label for="cube">Кубы</label>
-      <input class="input__number" type="number" name="cube">
+    <div class="calc__height">
+      <button class="btn" data-height="250">250</button>
+      <button class="btn" data-height="200">200</button>
     </div>
-    <div class="calc_item">
-      <label for="pieces">Штуки</label>
-      <input class="input__number" type="number" name="pieces">
-    </div>
-    <div class="calc_item">
-      <label for="pallets">Палеты</label>
-      <input class="input__number" type="number" name="pallets">
-    </div>
-  </div>
+    <div class="calc__factory">
+      <button class="btn" data-factory="DZGI">ДЗГИ</button>
+      <button class="btn" data-factory="SK">СК</button>
+      <button class="btn" data-factory="MY">МЯ</button>
 
-  <div class="calc__price">
-    <div class="calc__price-inner">
-      <button data-btnsetprice="5880">5880</button>
-      <button data-btnsetprice="5900">5900</button>
-      <button data-btnsetprice="5980">5980</button>
-      <button data-btnsetprice="6000">6000</button>
-      <button data-btnsetprice="6100">6100</button>
-      <button data-btnsetprice="6077">6077</button>
-      <button data-btnsetprice="6500">6500</button>
-      <button data-btnsetprice="6600">6600</button>
-      <button data-btnsetprice="6600">6975</button>
-
+      <!-- <div>
+        <label> Дмитров/Электросталь <input class="input__radio" type="radio" name="factory" value="DZGI" checked>
+        </label>
+      </div>
+      <div>
+        <label> Старая Купавна <input class="input__radio" type="radio" name="factory" value="SK">
+        </label>
+      </div>
+      <div>
+        <label> Малоярославец <input class="input__radio" type="radio" name="factory" value="MY">
+        </label>
+      </div> -->
     </div>
-    <div class="calc_item">
+    <div class="calc__cube">
+      <div class="calc_item">
+        <label for="cube">Кубы</label>
+        <input class="input__number" type="number" name="cube">
+      </div>
+      <div class="calc_item">
+        <label for="pieces">Штуки</label>
+        <input class="input__number" type="number" name="pieces">
+      </div>
+      <div class="calc_item">
+        <label for="pallets">Палеты</label>
+        <input class="input__number" type="number" name="pallets">
+      </div>
+    </div>
+
+    <div class="calc__price">
+      <div class="calc__price-inner">
+        <button data-btnsetprice="5780">5780</button>
+        <button data-btnsetprice="5860">5860</button>
+        <button data-btnsetprice="5960">5960</button>
+        <button data-btnsetprice="6000">6200</button>
+        <button data-btnsetprice="6000">6300</button>
+        <button data-btnsetprice="6100">6400</button>
+        <button data-btnsetprice="6560">6560</button>
+        <button data-btnsetprice="6660">6660</button>
+        <button data-btnsetprice="6975">6975</button>
+        <button data-btnsetprice="7000">7000</button>
+        <button data-btnsetprice="7500">7500</button>
+        <button data-btnsetprice="7800">7800</button>
+
+      </div>
+      <div class="calc_item">
+        <label>
+          Цена:
+        </label>
+        <input class="input__number" type="number" name="price">
+
+      </div>
+      <button class="btn" data-payment="nal">Нал</button>
+      <button class="btn" data-payment="nds">НДС</button>
+
       <label>
-        Цена:
+        C НДС:
+        <input type="checkbox" name="NC">
       </label>
-      <input class="input__number" type="number" name="price">
-
+      <input class="input__number hide" type="number" disabled min="3" value="3" step="0.5" name="NCPersent">
     </div>
-    <label>
-      C НДС:
-      <input type="checkbox" name="NC">
-    </label>
-    <input class="input__number hide" type="number" disabled min="3" value="3" step="0.5" name="NCPersent">
-  </div>
-  <button class="btn" id="btnAddRow">Добавить блок</button>
+    <button class="btn" id="btnAddRow">Добавить блок</button>
 
-  <div class="calc__logistics">
-    <div class="calc_item">
-      <label for="km">Км</label>
-      <input class="input__number" type="number" name="km">
+    <div class="calc__logistics">
+      <div class="calc_item">
+        <label for="km">Км</label>
+        <input class="input__number" type="number" name="km">
 
-    </div>
-    <button class="btn btn_log" data-typeLogistics="glory">Триумф</button>
-    <button class="btn btn_log" data-typeLogistics="tiana">Тиана</button>
-    <button class="btn btn_log" data-typeLogistics="my">Своя</button>
-    <!-- <label>
-      <p>Триумф</p>
-      <input type="radio" name="typeLogistics" value="glory" checked>
-    </label>
-    <label>
-      <p>Тиана</p>
-      <input type="radio" name="typeLogistics" value="tiana">
-    </label>
-    <label>
-      <p>Своя</p>
-      <input type="radio" name="typeLogistics" value="my">
-    </label> -->
-    <div>
-      <p>Доставка фурой: </p>
-      <div>
-        <span>Количество:</span>
-        <span class="counter">
-          <button data-logisticsRemove="truck">-</button>
-          <span data-truckCount="0">0</span>
-          <button data-logisticsAdd='truck'>+</button>
-        </span>
-        <div class="calc_item">
-          <p>Цена:</p>
-          <input class="input__number" data-logicstics="truck" type="number">
-
-        </div>
       </div>
-      <p>Доставка манипулятором:</p>
+      <button class="btn btn_log" data-typeLogistics="glory">Триумф</button>
+      <button class="btn btn_log" data-typeLogistics="tiana">Тиана</button>
+      <button class="btn btn_log" data-typeLogistics="my">Своя</button>
+
       <div>
-        <span>Количество:</span>
-        <span class="counter">
-          <button data-logisticsRemove="manipulator">-</button>
-          <span data-manipulatorCount="0">0</span>
-          <button data-logisticsAdd='manipulator'>+</button>
-        </span>
-        <div class="calc_item">
-          <p>Цена:</p>
-          <input class="input__number" data-logicstics="manipulator" type="number">
+        <p>Фура 20т: </p>
+        <div>
+          <span>Количество:</span>
+          <span class="counter">
+            <button data-logisticsRemove="truck">-</button>
+            <span data-truckCount="0">0</span>
+            <button data-logisticsAdd='truck'>+</button>
+          </span>
+          <div class="calc_item">
+            <p>Цена:</p>
+            <input class="input__number" data-logicstics="truck" type="number">
+
+          </div>
         </div>
-      </div>
-      <span>Доставка манипулятором с прицепом:</span>
-      <div>
-        <span>Количество:</span>
-        <span class="counter">
-          <button data-logisticsRemove="hitch">-</button>
-          <span data-hitchCount="0">0</span>
-          <button data-logisticsAdd='hitch'>+</button>
-        </span>
-        <div class="calc_item">
-          <p>Цена:</p>
-          <input class="input__number" data-logicstics="hitch" type="number">
+        <p>Маник 10т:</p>
+        <div>
+          <span>Количество:</span>
+          <span class="counter">
+            <button data-logisticsRemove="manipulator">-</button>
+            <span data-manipulatorCount="0">0</span>
+            <button data-logisticsAdd='manipulator'>+</button>
+          </span>
+          <div class="calc_item">
+            <p>Цена:</p>
+            <input class="input__number" data-logicstics="manipulator" type="number">
+          </div>
+        </div>
+        <span>Маник:</span>
+        <div>
+          <span>Количество:</span>
+          <span class="counter">
+            <button data-logisticsRemove="hitch">-</button>
+            <span data-hitchCount="0">0</span>
+            <button data-logisticsAdd='hitch'>+</button>
+          </span>
+          <div class="calc_item">
+            <p>Цена:</p>
+            <input class="input__number" data-logicstics="hitch" type="number">
+          </div>
         </div>
       </div>
     </div>
+
+    <div id="coppy">
+      <ul class="result"></ul>
+      <ul class="resultLogistics"></ul>
+      <div class="resultTotal"></div>
+    </div>
+    <button class="btn btn_log btn_yellow" onclick="copy('coppy')">Скопировать</button>
+    <button class="btn btn_log btn_red" onclick="reload()">Очистить</button>
+
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
-  <div id="coppy">
-    <ul class="result"></ul>
-    <ul class="resultLogistics"></ul>
-    <div class="resultTotal"></div>
-  </div>
-  <button class="btn btn_log btn_yellow" onclick="copy('coppy')">Скопировать</button>
-  <button class="btn btn_log btn_red" onclick="reload()">Очистить</button>
-
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-  <script>let a;
-    let logisticsPrice = {
-      glory: {
-        manipulator: {
-          nal: [15200, 16200, 17200, 18200, 19200],
-          bezNal: [16400, 17400, 18400, 19400, 20400],
-        },
-        truck: {
-          nal: [15200, 16200, 17200, 18200, 19200],
-          bezNal: [16400, 17900, 18900, 19900, 20900],
-        },
-        hitch: {
-          nal: [21200, 22300, 24700, 26000, 27700],
-          bezNal: [22400, 24900, 26900, 28400, 30400],
-        },
-      },
-      tiana: {
-        manipulator: {
-          nal: [14000, 15000, 16000, 17000, 18000],
-          bezNal: [16500, 17500, 18500, 19500, 21500],
-        },
-        truck: {
-          nal: [15200, 16200, 17200, 18200, 19200],
-          bezNal: [16400, 17900, 18900, 19900, 20900],
-        },
-        hitch: {
-          nal: [21200, 22300, 24700, 26000, 27700],
-          bezNal: [22400, 24900, 26900, 28400, 30400],
-        },
-      },
-      my: {
-        manipulator: {
-          nal: [0, 0, 0, 0, 0],
-          bezNal: [0, 0, 0, 0, 0],
-        },
-        truck: {
-          nal: [0, 0, 0, 0, 0],
-          bezNal: [0, 0, 0, 0, 0],
-        },
-        hitch: {
-          nal: [0, 0, 0, 0, 0],
-          bezNal: [0, 0, 0, 0, 0],
-        },
-      },
-    };
-
-    function copy(containerid) {
-      let textarea = document.createElement("textarea");
-      textarea.id = "temp";
-      textarea.style.height = 0;
-      document.body.appendChild(textarea);
-      textarea.value = document.getElementById(containerid).innerText;
-      let selector = document.querySelector("#temp");
-      selector.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-    }
-    function checkRange(start = 0, end = 100, num) {
-      if (num > start && num < end) return true;
-      return false;
-    }
-
-    class Veiw {
-      field;
-      constructor(field) {
-        this.field = field;
-      }
-
-      setParam(paramName, param) {
-        if (paramName === "isNonCash") return;
-        this.field
-          .querySelectorAll(`[data-${paramName}]`)
-          .forEach((el) => el.classList.remove("active"));
-        this.field
-          .querySelector(`[data-${paramName}='${param}']`)
-          .classList.add("active");
-      }
-      showCubes(cubes = 0, pieces = 0, pallets = 0) {
-        this.field.querySelector(`[name="cube"]`).value = cubes;
-        this.field.querySelector(`[name="pieces"]`).value = pieces;
-        this.field.querySelector(`[name="pallets"]`).value = pallets;
-      }
-      checkTypeLogistics(type) {
-        this.field.querySelectorAll(`[data-typelogistics]`).forEach((el) => {
-          el.dataset.typelogistics == type
-            ? el.classList.add("active")
-            : el.classList.remove("active");
-        });
-      }
-      setPrice(price) {
-        this.field.querySelector(`[name='price']`).value = price;
-      }
-      tooglePersentNC(isNonCash) {
-        // this.field.querySelector(`[name='NCPersent']`).disabled = !isNonCash;
-      }
-      showResult(result, logistics) {
-        let summ =
-          logistics.truck.price * logistics.truck.counter +
-          logistics.manipulator.price * logistics.manipulator.counter +
-          logistics.hitch.price * logistics.hitch.counter;
-        let rows = result.map((el, i) => {
-          summ += el.c * el.p;
-          return `<li>
-          <button data-idItem='${i}'>${el.d}</button>
-          <span> ${el.l}x${el.w}x${el.h} ${el.c} м3 - ${(el.c * el.p).toFixed(
-            2
-          )} руб</span>
-          <input data-itemCube=${i} class="input__number input__number_result" type="number" value='${el.c
-            }'>
-            <input data-itemPrice=${i} class="input__number input__number_result" type="number" value='${(
-              el.p * 1
-            ).toFixed(2)}'>
-          </li>`;
-        });
-        let resultField = this.field.querySelector(".result");
-        resultField.innerHTML = rows.join("");
-        let resultLogField = this.field.querySelector(".resultLogistics");
-        resultLogField.innerHTML = "";
-        let text = ``;
-        if (logistics.truck.counter) {
-          text += `<li>Доставка фуры: ${logistics.truck.price} руб x ${logistics.truck.counter}</li>`;
-        }
-        if (logistics.manipulator.counter) {
-          text += `<li>Доставка манипулятора: ${logistics.manipulator.price} руб x ${logistics.manipulator.counter} </li>`;
-        }
-        if (logistics.hitch.counter) {
-          text += `<li>Доставка манипулятора с прицепом: ${logistics.hitch.price} руб x ${logistics.hitch.counter} </li>`;
-        }
-        resultLogField.innerHTML += `<p>${text}</p>`;
-
-        this.field.querySelector(
-          ".resultTotal"
-        ).innerHTML = `<p>Итого: ${summ.toFixed(2)} руб</p>`;
-        // resultLogField.innerHTML += `<p>Итого: ${summ} руб</p>`;
-      }
-      showLogistics(truckPrice, manipulatorPrice, hitchPrice) {
-        this.field.querySelector("[data-logicstics='truck']").value = truckPrice;
-        this.field.querySelector("[data-logicstics='manipulator']").value =
-          manipulatorPrice;
-        this.field.querySelector("[data-logicstics='hitch']").value = hitchPrice;
-      }
-      showCount(type, count) {
-        let a = this.field.querySelector(`[data-${type}Count='${count + 1}']`);
-        let b = this.field.querySelector(`[data-${type}Count='${count}']`);
-        let c = this.field.querySelector(`[data-${type}Count='${count - 1}']`);
-        if (a) {
-          a.innerHTML = count;
-          a.dataset[`${type}count`] = count;
-        }
-        if (b) {
-          b.innerHTML = count;
-          b.dataset[`${type}count`] = count;
-        }
-        if (c) {
-          c.innerHTML = count;
-          c.dataset[`${type}count`] = count;
-        }
-      }
-      setNCPersent(persent) {
-        this.field.querySelector('[name="NCPersent"]').value = persent;
-      }
-      showResultLogistics(logistics) {
-        let resultField = this.field.querySelector(".resultLogistics");
-        resultField.innerHTML = "";
-        let text = ``;
-        if (logistics.truck.counter) {
-          text += `Доставка фуры: ${logistics.truck.price} руб x ${logistics.truck.counter}\n`;
-        }
-        if (logistics.manipulator.counter) {
-          text += `Доставка манипулятора: ${logistics.manipulator.price} руб x ${logistics.manipulator.counter}\n`;
-        }
-        if (logistics.hitch.counter) {
-          text += `Доставка манипулятора с прицепом: ${logistics.hitch.price} руб x ${logistics.hitch.counter}\n`;
-        }
-        resultField.innerHTML += `<p>${text}</p>`;
-      }
-    }
-
-    let test;
-
-    class Model {
-      view;
-      density = "D500";
-      lenght = 600;
-      width = 300;
-      height = 250;
-      cubes = 0;
-      pieces = 0;
-      step = 1.8;
-      pallets = 0;
-      price;
-      priceData = {
-        my: 0,
-        DZGI: {
-          D400: {
-            cash: 6975,
-            nonCash: 7750,
-          },
-          D500: {
-            cash: 5860,
-            nonCash: 6500,
-          },
-          D600: {
-            cash: 5860,
-            nonCash: 6500,
-          },
-        },
-        SK: {
-          D400: {
-            cash: 6975,
-            nonCash: 7750,
-          },
-          D500: {
-            cash: 5960,
-            nonCash: 6600,
-          },
-          D600: {
-            cash: 5960,
-            nonCash: 6600,
-          },
-        },
-        MY: {
-          D400: {
-            cash: 6975,
-            nonCash: 7750,
-          },
-          D500: {
-            cash: 5770,
-            nonCash: 6400,
-          },
-          D600: {
-            cash: 5770,
-            nonCash: 6400,
-          },
-        },
-      };
-      factory = "DZGI";
-      isNonCash = false;
-      NCPersent;
-      ourInner;
-      result = [];
-      logistics = {
-        type: "",
-        truck: {
-          price: 0,
-          counter: 0,
-        },
-        manipulator: {
-          price: 0,
-          counter: 0,
-        },
-        hitch: {
-          price: 0,
-          counter: 0,
-        },
-      };
-      constructor(view) {
-        this.view = view;
-        this.init();
-      }
-      init() {
-        this.setParam("isNonCash", false);
-        this.setParam("height", this.height);
-        this.setParam("width", this.width);
-        this.setParam("lenght", this.lenght);
-        this.setParam("density", this.density);
-        this.setPrice();
-        // this.setNCPersent(3);
-        this.setTypeLogistics("glory");
-        view.showCubes(this.cubes, this.pieces, this.pallets);
-      }
-      setParam(paramName, param) {
-        this[`${paramName}`] = param;
-        if (paramName === "density")
-          this.setPrice(
-            this.priceData[this.factory][param][this.isNonCash ? "nonCash" : "cash"]
-          );
-        view.setParam(paramName, param);
-        this.setStep();
-      }
-      setStep() {
-        if (this.lenght == 600) {
-          if (this.width == 400) {
-            this.step = this.factory === "SK" ? 2.16 : 1.92;
-          } else if (this.width == 350) this.step = 1.68;
-          else if (this.width == 200 && this.height == 200) this.step = 1.44;
-          else this.step = 1.8;
-        }
-
-        if (this.lenght == 625) {
-          if (this.width == 400) this.step = 2;
-          if (this.width == 350) this.step = 1.75;
-          if (this.width == 200) {
-            this.setParam("height", 250);
-            this.step = 1.875;
-          } else {
-            this.step = 1.875;
-          }
-        }
-        this.calcCube(this.cubes);
-        view.showCubes(this.cubes, this.pieces, this.pallets);
-      }
-      calcCube(cubes) {
-        this.cubes = cubes;
-        this.pieces = (
-          (((((this.cubes / this.lenght) * 1000) / this.width) * 1000) /
-            this.height) *
-          1000
-        ).toFixed(2);
-        this.pallets = this.cubes / this.step;
-        view.showCubes(this.cubes, this.pieces, this.pallets);
-      }
-      calcPieces(pieces) {
-        this.pieces = pieces;
-        this.cubes = (
-          (this.lenght / 1000) *
-          (this.width / 1000) *
-          (this.height / 1000) *
-          this.pieces
-        ).toFixed(3);
-        this.pallets = (this.cubes / this.step).toFixed(2);
-        view.showCubes(this.cubes, this.pieces, this.pallets);
-      }
-      calcPallets(pieces) {
-        this.pallets = pieces;
-        this.cubes = this.pallets * this.step;
-        this.pieces = (
-          this.cubes /
-          ((this.lenght / 1000) * (this.width / 1000) * (this.height / 1000))
-        ).toFixed(2);
-        view.showCubes(this.cubes, this.pieces, this.pallets);
-      }
-      setTypeLogistics(type) {
-        this.logistics.type = type;
-        this.calcLogictics(this.logistics.type);
-        view.checkTypeLogistics(this.logistics.type);
-      }
-      calcLogictics(type = this.logistics.type) {
-        let isNonCash = this.isNonCash ? "nal" : "bezNal";
-        if (checkRange(0, 30, this.km)) {
-          this.logistics.truck.price =
-            logisticsPrice[`${type}`].truck[`${isNonCash}`][0];
-          this.logistics.manipulator.price =
-            logisticsPrice[`${type}`].manipulator[`${isNonCash}`][0];
-          this.logistics.hitch.price =
-            logisticsPrice[`${type}`].hitch[`${isNonCash}`][0];
-        } else if (checkRange(30, 45, this.km)) {
-          this.logistics.truck.price =
-            logisticsPrice[`${type}`].truck[`${isNonCash}`][1];
-          this.logistics.manipulator.price =
-            logisticsPrice[`${type}`].manipulator[`${isNonCash}`][1];
-          this.logistics.hitch.price =
-            logisticsPrice[`${type}`].hitch[`${isNonCash}`][1];
-        } else if (checkRange(45, 60, this.km)) {
-          this.logistics.truck.price =
-            logisticsPrice[`${type}`].truck[`${isNonCash}`][2];
-          this.logistics.manipulator.price =
-            logisticsPrice[`${type}`].manipulator[`${isNonCash}`][2];
-          this.logistics.hitch.price =
-            logisticsPrice[`${type}`].hitch[`${isNonCash}`][2];
-        } else if (checkRange(60, 90, this.km)) {
-          this.logistics.truck.price =
-            logisticsPrice[`${type}`].truck[`${isNonCash}`][3];
-          this.logistics.manipulator.price =
-            logisticsPrice[`${type}`].manipulator[`${isNonCash}`][3];
-          this.logistics.hitch.price =
-            logisticsPrice[`${type}`].hitch[`${isNonCash}`][3];
-        } else if (checkRange(90, 120, this.km)) {
-          this.logistics.truck.price =
-            logisticsPrice[`${type}`].truck[`${isNonCash}`][4];
-          this.logistics.manipulator.price =
-            logisticsPrice[`${type}`].manipulator[`${isNonCash}`][4];
-          this.logistics.hitch.price =
-            logisticsPrice[`${type}`].hitch[`${isNonCash}`][4];
-        }
-        view.showLogistics(
-          this.logistics.truck.price,
-          this.logistics.manipulator.price,
-          this.logistics.hitch.price
-        );
-      }
-      setPrice(price) {
-        if (price) {
-          this.price = price;
-          let a;
-          a = this.price / this.ourInner;
-          if (a < 1) this.NCPersent = (1 - this.price / this.ourInner) * -100;
-          if (a > 1) this.NCPersent = (this.price / this.ourInner - 1) * 100;
-          if (a == 1) this.NCPersent = 0;
-        } else {
-          if (this.isNonCash) {
-            this.price = this.ourInner + this.ourInner * (this.NCPersent / 100);
-          } else price = this.ourInner;
-        }
-        view.setPrice(this.price);
-        view.setNCPersent(this.NCPersent);
-      }
-      // setFactory(factory) {
-      //   this.factory = factory;
-      // switch (this.factory) {
-      //   case "DZGI":
-      //     this.ourInner = 6300;
-      //     this.setPrice(5860);
-      //     break;
-      //   case "SK":
-      //     this.ourInner = 6400;
-      //     this.setPrice(5960);
-      //     break;
-      //   case "MY":
-      //     this.ourInner = 6200;
-      //     this.setPrice(5770);
-      //     break;
-      //   default:
-      //     this.setPrice(this.ourInner);
-      //     break;
-      // }
-      // this.setStep();
-      // }
-      setNC(isNonCash) {
-        this.isNonCash = isNonCash;
-        // this.setFactory(this.factory);
-        view.tooglePersentNC(this.isNonCash);
-      }
-      setNCPersent(persent) {
-        this.NCPersent = persent;
-      }
-      setKm(km) {
-        this.km = km;
-        this.calcLogictics();
-      }
-      addRow() {
-        this.result.push({
-          w: this.width,
-          h: this.height,
-          l: this.lenght,
-          d: this.density,
-          c: this.cubes,
-          p: this.price,
-        });
-        view.showResult(this.result, this.logistics);
-      }
-      deleteRow(idItem) {
-        this.result = this.result.filter((el, i) => i != idItem);
-        view.showResult(this.result, this.logistics);
-      }
-      addTransport(type) {
-        this.logistics[`${type}`].counter += 1;
-        view.showCount(type, this.logistics[`${type}`].counter);
-        view.showResult(this.result, this.logistics);
-      }
-      removeTransport(type) {
-        if (this.logistics[`${type}`].counter <= 0) return;
-        this.logistics[`${type}`].counter -= 1;
-        view.showCount(type, this.logistics[`${type}`].counter);
-        view.showResult(this.result, this.logistics);
-      }
-      setMyLogistics(type, price) {
-        this.logistics[`${type}`].price = price;
-        view.showResult(this.result, this.logistics);
-      }
-      addLogistics() {
-        this.result;
-      }
-      setItemCube(cube, i) {
-        this.result[i].c = cube;
-        // view.showResult(this.result)
-      }
-      setItemPrice(price, i) {
-        this.result[i].p = price;
-        // view.showResult(this.result)
-      }
-      showResult() {
-        view.showResult(this.result, this.logistics);
-      }
-    }
-
-    class Controller {
-      model;
-      constructor(model) {
-        this.model = model;
-        this.init();
-        return this;
-      }
-
-      init() {
-        document.addEventListener("click", this.combiner);
-        document.addEventListener("input", this.inputData);
-      }
-
-      combiner(e) {
-        let target = e.target;
-        if (target.dataset.density) {
-          model.setParam("density", target.dataset.density);
-        } else if (target.dataset.lenght) {
-          model.setParam("lenght", target.dataset.lenght);
-        } else if (target.dataset.width) {
-          model.setParam("width", target.dataset.width);
-        } else if (target.dataset.height) {
-          model.setParam("height", target.dataset.height);
-        } else if (target.dataset.factory) {
-          model.setParam("factory", target.dataset.factory);
-          // } else if (target.name === "typeLogistics") {
-          // model.setTypeLogistics(target.value);
-          // } else if (target.name === "factory") {
-          //   model.setFactory(target.value);
-        } else if (target.dataset.typelogistics) {
-          model.setTypeLogistics(target.dataset.typelogistics);
-          // } else if (target.name === "factory") {
-          //   model.setFactory(target.value);
-        } else if (target.id === "btnAddRow") {
-          model.addRow();
-        } else if (target.name === "NC") {
-          model.setNC(target.checked);
-        } else if (target.dataset.iditem) {
-          model.deleteRow(target.dataset.iditem);
-        } else if (target.dataset.logisticsadd) {
-          model.addTransport(target.dataset.logisticsadd);
-        } else if (target.dataset.logisticsremove) {
-          model.removeTransport(target.dataset.logisticsremove);
-        } else if (target.dataset.btnsetprice) {
-          model.setPrice(target.dataset.btnsetprice);
-        } else if (target.id === "addLogistics") {
-          model.addLogistics();
-        }
-      }
-      inputData(e) {
-        if (e.target.value === "") return;
-        if (e.target.name == "cube") {
-          model.calcCube(e.target.value);
-        } else if (e.target.name == "pieces") {
-          e.preventDefault();
-          model.calcPieces(e.target.value);
-        } else if (e.target.name == "pallets") {
-          e.preventDefault();
-          model.calcPallets(e.target.value);
-        } else if (e.target.name == "km") {
-          e.preventDefault();
-          model.setKm(e.target.value);
-        } else if (e.target.name == "price") {
-          e.preventDefault();
-          model.setPrice(e.target.value);
-        } else if (e.target.dataset.logicstics) {
-          e.preventDefault();
-          model.setMyLogistics(e.target.dataset.logicstics, e.target.value);
-        } else if (e.target.dataset.itemprice) {
-          e.preventDefault();
-          model.setItemPrice(e.target.value, e.target.dataset.itemprice);
-          e.target.addEventListener("blur", showRes);
-        } else if (e.target.dataset.itemcube) {
-          e.preventDefault();
-          model.setItemCube(e.target.value, e.target.dataset.itemcube);
-          e.target.addEventListener("blur", showRes);
-        }
-      }
-    }
-
-    function showRes(e) {
-      model.showResult();
-      e.target.removeEventListener("blur", showRes, true);
-    }
-
-    let view = new Veiw(document.querySelector(".calc"));
-    let model = new Model(view);
-    let controller = new Controller(model);
-    function reload() {
-      location.reload();
-    }
-
-  </script>
+  <script src="./main.js"></script>
 </body>
 
 </html>
