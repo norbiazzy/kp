@@ -534,8 +534,10 @@ class Model {
 
     if (this.lenght == 625) {
       if (this.width == 400) this.step = 2;
-      if (this.width == 350) this.step = 1.75;
-      if (this.width == 200) {
+      else if (this.width == 100) this.step = 2;
+      else if (this.width == 200) this.step = 2;
+      else if (this.width == 350) this.step = 1.75;
+      else if (this.width == 200) {
         this.setParam("height", 250);
         this.step = 1.875;
       } else {
