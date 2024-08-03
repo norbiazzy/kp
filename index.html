@@ -4,175 +4,231 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./reset.css" />
+  <!-- <link rel="stylesheet" href="./reset.css" /> -->
+  <link rel="stylesheet" href="./bootstrap.min.css" />
   <link rel="stylesheet" href="./main.css" />
   <title>КП</title>
 </head>
 
 <body>
+
+
   <h1>Калькулятор блоков</h1>
 
-  <div class="calc">
-    <div class="calc__density">
-      <button class="btn" data-density="D400">D400</button>
-      <button class="btn" data-density="D500">D500</button>
-      <button class="btn" data-density="D600">D600</button>
-    </div>
-    <div class="calc__lenght">
-      <button class="btn" data-lenght="600">600</button>
-      <button class="btn" data-lenght="625">625</button>
-    </div>
-    <div class="calc__width">
-      <div>
-        <button class="btn" data-width="400">400</button>
-        <button class="btn" data-width="375">375</button>
-        <button class="btn" data-width="350">350</button>
+  <div class="container calc">
+    <div class="row mb-2">
+      <div class="col">
+        <button class="btn w-100 btn-secondary" data-density="D400">D400</button>
       </div>
-      <div>
-        <button class="btn" data-width="300">300</button>
-        <button class="btn" data-width="250">250</button>
-        <button class="btn" data-width="200">200</button>
+      <div class="col">
+        <button class="btn w-100 btn-secondary" data-density="D500">D500</button>
       </div>
-      <div>
-        <button class="btn" data-width="150">150</button>
-        <button class="btn" data-width="100">100</button>
-        <button class="btn" data-width="50">50</button>
+      <div class="col">
+        <button class="btn w-100 btn-secondary" data-density="D600">D600</button>
       </div>
     </div>
-    <div class="calc__height">
-      <button class="btn" data-height="250">250</button>
-      <button class="btn" data-height="200">200</button>
-    </div>
-    <div class="calc__factory">
-      <button class="btn" data-factory="DZGI">ДЗГИ</button>
-      <button class="btn" data-factory="SK">СК</button>
-      <button class="btn" data-factory="MY">МЯ</button>
-
-      <!-- <div>
-        <label> Дмитров/Электросталь <input class="input__radio" type="radio" name="factory" value="DZGI" checked>
-        </label>
+    <div class="row mb-2">
+      <div class="col">
+        <button class="btn w-100 btn-secondary" data-lenght="600">600</button>
       </div>
-      <div>
-        <label> Старая Купавна <input class="input__radio" type="radio" name="factory" value="SK">
-        </label>
-      </div>
-      <div>
-        <label> Малоярославец <input class="input__radio" type="radio" name="factory" value="MY">
-        </label>
-      </div> -->
-    </div>
-    <div class="calc__cube">
-      <div class="calc_item">
-        <label for="cube">Кубы</label>
-        <input class="input__number" type="number" name="cube">
-      </div>
-      <div class="calc_item">
-        <label for="pieces">Штуки</label>
-        <input class="input__number" type="number" name="pieces">
-      </div>
-      <div class="calc_item">
-        <label for="pallets">Палеты</label>
-        <input class="input__number" type="number" name="pallets">
+      <div class="col">
+        <button class="btn w-100 btn-secondary" data-lenght="625">625</button>
       </div>
     </div>
-
-    <div class="calc__price">
-      <div class="calc__price-inner">
-        <button data-btnsetprice="5780">5780</button>
-        <button data-btnsetprice="5860">5860</button>
-        <button data-btnsetprice="5960">5960</button>
-        <button data-btnsetprice="6000">6200</button>
-        <button data-btnsetprice="6000">6300</button>
-        <button data-btnsetprice="6100">6400</button>
-        <button data-btnsetprice="6560">6560</button>
-        <button data-btnsetprice="6660">6660</button>
-        <button data-btnsetprice="6975">6975</button>
-        <button data-btnsetprice="7000">7000</button>
-        <button data-btnsetprice="7500">7500</button>
-        <button data-btnsetprice="7800">7800</button>
-
-      </div>
-      <div class="calc_item">
-        <label>
-          Цена:
-        </label>
-        <input class="input__number" type="number" name="price">
-
-      </div>
-      <button class="btn" data-payment="nal">Нал</button>
-      <button class="btn" data-payment="nds">НДС</button>
-
-      <label>
-        C НДС:
-        <input type="checkbox" name="NC">
-      </label>
-      <input class="input__number hide" type="number" disabled min="3" value="3" step="0.5" name="NCPersent">
+    <div class="row mb-2">
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="400">400</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="375">375</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="350">350</button></div>
     </div>
-    <button class="btn" id="btnAddRow">Добавить блок</button>
-
-    <div class="calc__logistics">
-      <div class="calc_item">
-        <label for="km">Км</label>
-        <input class="input__number" type="number" name="km">
-
-      </div>
-      <button class="btn btn_log" data-typeLogistics="glory">Триумф</button>
-      <button class="btn btn_log" data-typeLogistics="tiana">Тиана</button>
-      <button class="btn btn_log" data-typeLogistics="my">Своя</button>
-
-      <div>
-        <p>Фура 20т: </p>
-        <div>
-          <span>Количество:</span>
-          <span class="counter">
-            <button data-logisticsRemove="truck">-</button>
-            <span data-truckCount="0">0</span>
-            <button data-logisticsAdd='truck'>+</button>
-          </span>
-          <div class="calc_item">
-            <p>Цена:</p>
-            <input class="input__number" data-logicstics="truck" type="number">
-
-          </div>
-        </div>
-        <p>Маник 10т:</p>
-        <div>
-          <span>Количество:</span>
-          <span class="counter">
-            <button data-logisticsRemove="manipulator">-</button>
-            <span data-manipulatorCount="0">0</span>
-            <button data-logisticsAdd='manipulator'>+</button>
-          </span>
-          <div class="calc_item">
-            <p>Цена:</p>
-            <input class="input__number" data-logicstics="manipulator" type="number">
-          </div>
-        </div>
-        <span>Маник:</span>
-        <div>
-          <span>Количество:</span>
-          <span class="counter">
-            <button data-logisticsRemove="hitch">-</button>
-            <span data-hitchCount="0">0</span>
-            <button data-logisticsAdd='hitch'>+</button>
-          </span>
-          <div class="calc_item">
-            <p>Цена:</p>
-            <input class="input__number" data-logicstics="hitch" type="number">
-          </div>
-        </div>
-      </div>
+    <div class="row mb-2">
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="300">300</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="250">250</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="200">200</button></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="150">150</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="100">100</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-width="50">50</button></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col"><button class="btn w-100 btn-secondary" data-height="250">250</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-height="200">200</button></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col"><button class="btn w-100 btn-secondary" data-factory="DZGI">ДЗГИ</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-factory="SK">СК</button></div>
+      <div class="col"><button class="btn w-100 btn-secondary" data-factory="MY">МЯ</button></div>
     </div>
 
-    <div id="coppy">
-      <ul class="result"></ul>
-      <ul class="resultLogistics"></ul>
-      <div class="resultTotal"></div>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center"><label for="cube">Кубы</label></div>
+      <div class="col"><input class="form-control" type="number" name="cube"></div>
     </div>
-    <button class="btn btn_log btn_yellow" onclick="copy('coppy')">Скопировать</button>
-    <button class="btn btn_log btn_red" onclick="reload()">Очистить</button>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center"><label for="pieces">Штуки</label></div>
+      <div class="col"><input class="form-control" type="number" name="pieces"></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center"><label for="pallets">Палеты</label></div>
+      <div class="col"><input class="form-control" type="number" name="pallets"></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center"><label for="glay">Клей</label></div>
+      <div class="col"><input class="form-control" type="number" value="0" name="glay"></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center "><label for="glayPrice">Цена клея</label></div>
+      <div class="col"><input class="form-control" type="number" value="300" name="glayPrice"></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col">
+        <button class="btn mb-2 w-100 btn-secondary" data-btnsetprice="5770">5770</button>
+        <button class="btn mb-2 w-100 btn-secondary" data-btnsetprice="5860">5860</button>
+      </div>
+      <div class="col">
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="5960">5960</button>
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="6000">6000</button>
+      </div>
+      <div class="col">
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="6560">6560</button>
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="6975">6975</button>
+      </div>
+      <div class="col">
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="7500">7500</button>
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="6660">6660</button>
+      </div>
+      <div class="col">
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="7000">7000</button>
+        <button class="btn w-100 mb-2  btn-secondary" data-btnsetprice="7800">7800</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex align-items-center">
+        <p class="mb-2">Цена: </p>
+      </div>
+      <div class="col"> <input class="mb-2 form-control" type="number" name="price">
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col"><button class="mb-0 btn w-100 btn-secondary" data-payment="nal">Нал</button></div>
+      <div class="col"><button class="mb-0 btn w-100 btn-secondary" data-payment="nds">НДС</button></div>
+    </div>
+    <!-- <input class="mb-0 form-control" type="number" disabled min="3" value="3" step="0.5" name="NCPersent"> -->
 
+    <div class="row mb-2">
+      <div class="col"><button class="mb-0 btn w-100 btn-primary" id="btnAddRow">Добавить блок</button></div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center"><label for="km">Км</label></div>
+      <div class="col"><input class="form-control" type="number" name="km"></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col"><button class="mb-0 btn w-100 btn-warning" data-typeLogistics="glory">Триумф</button></div>
+      <div class="col"><button class="mb-0 btn w-100 btn-warning" data-typeLogistics="tiana">Тиана</button></div>
+      <div class="col"><button class="mb-0 btn w-100 btn-warning" data-typeLogistics="my">Своя</button></div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center">
+        <p class="mb-0">Фура 20т: </p>
+      </div>
+      <div class="col">
+        <button class="mb-0 btn btn-danger w-auto" data-logisticsRemove="truck">-</button>
+        <span data-truckCount="0">0</span>
+        <button class="mb-0 btn btn-success w-auto" data-logisticsAdd='truck'>+</button>
+      </div>
+      <div class="col">
+        <input class="form-control" data-logicstics="truck" type="number">
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center">
+        <p class="mb-0">Маник 10т: </p>
+      </div>
+      <div class="col">
+        <button class="mb-0 btn btn-danger w-auto" data-logisticsRemove="manipulator">-</button>
+        <span data-manipulatorCount="0">0</span>
+        <button class="mb-0 btn btn-success w-auto" data-logisticsAdd='manipulator'>+</button>
+      </div>
+      <div class="col">
+        <input class="form-control" data-logicstics="manipulator" type="number">
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col d-flex align-items-center">
+        <p class="mb-0">Маник 20т:</p>
+      </div>
+      <div class="col">
+        <button class="mb-0 btn btn-danger w-auto" data-logisticsRemove="hitch">-</button>
+        <span data-hitchCount="0">0</span>
+        <button class="mb-0 btn btn-success w-auto" data-logisticsAdd='hitch'>+</button>
+      </div>
+      <div class="col">
+        <input class="form-control" data-logicstics="hitch" type="number">
+      </div>
+    </div>
+    <div class="row" id="coppy">
+      <div class="col">
+        <ul class="result"></ul>
+        <ul class="resultLogistics"></ul>
+        <div class="resultTotal"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><button class="btn w-100 mb-2  btn-warning" onclick="copy('coppy')">Скопировать</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"><button class="btn w-100 mb-2  btn-danger" onclick="reload()">Очистить</button> </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!-- <button class="btn w-100 mb-2  btn-info" data-modal="bridge" id="bridgeModal">Перемычки</button> -->
+        <button type="button" class="btn w-100 mb-2  btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Перемычки
+        </button>
+
+      </div>
+    </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Перемычки</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="bridge">
+            <div class="shadow"></div>
+            <div>
+
+              <ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary w-auto" type="button" id="button-addon1">Button</button>
+        <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon"
+          aria-describedby="button-addon1">
+        <button class="btn btn-outline-secondary w-auto" type="button" id="button-addon2">Button</button>
+      </div>
+    </div>
+  </div> -->
   <br>
   <br>
   <br>
@@ -201,6 +257,7 @@
   <br>
   <br>
 
+  <script src="./bootstrap.min.js"></script>
   <script src="./main.js"></script>
 </body>
 

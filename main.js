@@ -43,7 +43,168 @@ let logisticsPrice = {
     },
   },
 };
-
+let bridges = {
+  1210100: {
+    name: "Перемычка брусковая Poritep D600 1200*100*250/1000 В3,5 ТУ",
+    short: "D600 1200*100*250/1000",
+    incoming: 600,
+    count: 0,
+    price: 700,
+    heft: "28,46",
+  },
+  1215100: {
+    name: "Перемычка брусковая Poritep D600 1200*150*250/1000 В3,5 ТУ",
+    short: "D600 1200*150*250/1000",
+    incoming: 878,
+    count: 0,
+    price: 1000,
+    heft: "42,19",
+  },
+  1220100: {
+    name: "Перемычка брусковая Poritep D600 1200*200*250/1000 В3,5 ТУ",
+    short: "D600 1200*200*250/1000",
+    incoming: 1168,
+    count: 0,
+    price: 1300,
+    heft: "55,92",
+  },
+  1510700: {
+    name: "Перемычка брусковая Poritep D600 1500*100*250/700 В3,5 ТУ",
+    short: "D600 1500*100*250/700",
+    incoming: 750,
+    count: 0,
+    price: 800,
+    heft: "35,46",
+  },
+  1515700: {
+    name: "Перемычка брусковая Poritep D600 1500*150*250/700 B3,5 ТУ",
+    short: "D600 1500*150*250/700",
+    incoming: 1097,
+    count: 0,
+    price: 1200,
+    heft: "52,19",
+  },
+  1520700: {
+    name: "Перемычка брусковая Poritep D600 1500*200*250/700 B3,5 ТУ",
+    short: "D600 1500*200*250/700",
+    incoming: 1463,
+    count: 0,
+    price: 1600,
+    heft: "68,92",
+  },
+  1520325: {
+    name: "Перемычка брусковая Poritep D600 1500*200*250/3250 В3,5 ТУ",
+    short: "D600 1500*200*250/3250",
+    incoming: 1688,
+    count: 0,
+    price: 1800,
+    heft: "72,92",
+  },
+  1530325: {
+    name: "Перемычка брусковая Poritep D600 1500*300*250/3250 В3,5 ТУ",
+    short: "D600 1500*300*250/3250",
+    incoming: 2531,
+    count: 0,
+    price: 2700,
+    heft: "107,38",
+  },
+  2010400: {
+    name: "Перемычка брусковая Poritep D600 2000*100*250/400 B3,5 ТУ",
+    short: "D600 2000*100*250/400",
+    incoming: 1000,
+    count: 0,
+    price: 1100,
+    heft: "47,92",
+  },
+  2015400: {
+    name: "Перемычка брусковая Poritep D600 2000*150*250/400 В3,5 ТУ",
+    short: "D600 2000*150*250/400",
+    incoming: 1463,
+    count: 0,
+    price: 1600,
+    heft: "71,38",
+  },
+  2020800: {
+    name: "Перемычка брусковая Poritep D600 2000*200*250/1800 В3,5 ТУ",
+    short: "D600 2000*200*250/1800",
+    incoming: 2250,
+    count: 0,
+    price: 2400,
+    heft: "98,83",
+  },
+  2020400: {
+    name: "Перемычка брусковая Poritep D600 2000*200*250/400 В3,5 ТУ",
+    short: "D600 2000*200*250/400",
+    incoming: 1950,
+    count: 0,
+    price: 2100,
+    heft: "94,83",
+  },
+  2030185: {
+    name: "Перемычка брусковая Poritep D600 2000*300*250/1850 В3,5 ТУ",
+    short: "D600 2000*300*250/1850",
+    incoming: 3375,
+    count: 0,
+    price: 3500,
+    heft: "145,75",
+  },
+  2515350: {
+    name: "Перемычка брусковая Poritep D600 2500*150*250/350 В3,5 ТУ",
+    short: "D600 2500*150*250/350",
+    incoming: 1828,
+    count: 0,
+    price: 2000,
+    heft: "88,38",
+  },
+  2520110: {
+    name: "Перемычка брусковая Poritep D600 2500*200*250/1100 В3,5 ТУ",
+    short: "D600 2500*200*250/1100",
+    incoming: 2813,
+    count: 0,
+    price: 3000,
+    heft: "121,83",
+  },
+  2520350: {
+    name: "Перемычка брусковая Poritep D600 2500*200*250/350 В3,5 ТУ",
+    short: "D600 2500*200*250/350",
+    incoming: 2438,
+    count: 0,
+    price: 2600,
+    heft: "121,83",
+  },
+  2530150: {
+    name: "Перемычка брусковая Poritep D600 2500*300*250/1500 В3,5 ТУ",
+    short: "D600 2500*300*250/1500",
+    incoming: 4219,
+    count: 0,
+    price: 4300,
+    heft: "180,75",
+  },
+  3015300: {
+    name: "Перемычка брусковая Poritep D600 3000*150*250/300 В3,5 ТУ",
+    short: "D600 3000*150*250/300",
+    incoming: 2194,
+    count: 0,
+    price: 2300,
+    heft: "104,38",
+  },
+  3020750: {
+    name: "Перемычка брусковая Poritep D600 3000*200*250/750 В3,5 ТУ",
+    short: "D600 3000*200*250/750",
+    incoming: 3375,
+    count: 0,
+    price: 3500,
+    heft: "144,83",
+  },
+  3030100: {
+    name: "Перемычка брусковая Poritep D600 3000*300*250/1000 B3,5 ТУ",
+    short: "D600 3000*300*250/1000",
+    incoming: 5063,
+    count: 0,
+    price: 5200,
+    heft: "215,75",
+  },
+};
 function copy(containerid) {
   let textarea = document.createElement("textarea");
   textarea.id = "temp";
@@ -67,7 +228,6 @@ class Veiw {
   }
 
   setParam(paramName, param) {
-    if (paramName === "isNonCash") return;
     this.field
       .querySelectorAll(`[data-${paramName}]`)
       .forEach((el) => el.classList.remove("active"));
@@ -80,6 +240,9 @@ class Veiw {
     this.field.querySelector(`[name="pieces"]`).value = pieces;
     this.field.querySelector(`[name="pallets"]`).value = pallets;
   }
+  showGlay(parName, val) {
+    this.field.querySelector(`[name="${parName}"]`).value = val;
+  }
   checkTypeLogistics(type) {
     this.field.querySelectorAll(`[data-typelogistics]`).forEach((el) => {
       el.dataset.typelogistics == type
@@ -90,16 +253,15 @@ class Veiw {
   setPrice(price) {
     this.field.querySelector(`[name='price']`).value = price;
   }
-  tooglePersentNC(isNonCash) {
-    // this.field.querySelector(`[name='NCPersent']`).disabled = !isNonCash;
-  }
-  showResult(result, logistics, payment) {
+  showResult(data) {
+    let { result, logistics, payment, glay, glayPrice } = data;
     let options = { style: "currency", currency: "RUB" };
     let numberFormat = new Intl.NumberFormat("ru-RU", options);
     let summ =
       logistics.truck.price * logistics.truck.counter +
       logistics.manipulator.price * logistics.manipulator.counter +
-      logistics.hitch.price * logistics.hitch.counter;
+      logistics.hitch.price * logistics.hitch.counter +
+      glay * glayPrice;
     let rows = result.map((el, i) => {
       summ += el.c * el.p;
       return `<li>
@@ -115,8 +277,26 @@ class Veiw {
       )}'>
       </li>`;
     });
+    for (const key in bridges) {
+      if (Object.hasOwnProperty.call(bridges, key)) {
+        const bridge = bridges[key];
+        let cost = bridge.price * bridge.count;
+        summ = +cost + summ;
+        if (bridge.count > 0)
+          rows.push(
+            `<li>${bridge.name} x ${bridge.count} - ${numberFormat.format(
+              cost
+            )}  </li>`
+          );
+      }
+    }
     let resultField = this.field.querySelector(".result");
+    resultField.innerHTML = "";
     resultField.innerHTML = rows.join("");
+    if (glay > 0)
+      resultField.innerHTML += `<p>Клей 25 кг: ${glay} шт - ${
+        glayPrice * glay
+      }</p>`;
     let resultLogField = this.field.querySelector(".resultLogistics");
     resultLogField.innerHTML = "";
     let text = ``;
@@ -138,7 +318,9 @@ class Veiw {
     resultLogField.innerHTML += `<p>${text}</p>`;
 
     this.field.querySelector(".resultTotal").innerHTML = `${
-      payment === "nds" ? "<p>В том числе НДС 20%: " + numberFormat.format((summ / 120) * 20) : ""
+      payment === "nds"
+        ? "<p>В том числе НДС 20%: " + numberFormat.format((summ / 120) * 20)
+        : ""
     }<p>Итого: ${numberFormat.format(summ)}</p>`;
   }
   showLogistics(truckPrice, manipulatorPrice, hitchPrice) {
@@ -179,6 +361,38 @@ class Veiw {
     }
     resultField.innerHTML += `<p>${text}</p>`;
   }
+  createBridgeBlock(id) {
+    console.log(123);
+    let block = "";
+    id.forEach((id) => {
+      let bridge = bridges[id];
+      let row = `      
+  <li class="row">
+    <div class="col">
+    <p>${bridge.short}</p>
+      <div class="input-group mb-3">
+        <button class="btn btn-outline-secondary w-auto" type="button" data-countRemove="${id}">-</button>
+        <input type="text" class="form-control" id="${id}" data-countInp="${id}" value="${bridge.count}" aria-label="Example text with button addon"
+          aria-describedby="button-addon1">
+        <button class="btn btn-outline-secondary w-auto" type="button" data-countAdd="${id}">+</button>
+      </div>
+    </div>
+  </li>`;
+      block += row;
+    });
+    let field = document.querySelector("#bridge ul");
+    field.innerHTML = block;
+  }
+  countInpShow(id, target) {
+    target.classList.add("hide");
+    document
+      .querySelector(`input[data-countInp="${id}"]`)
+      .classList.remove("hide");
+  }
+  toggleModal(modalName) {
+    debugger;
+    document.querySelector("#" + modalName).classList.toggle("show");
+  }
 }
 
 let test;
@@ -194,6 +408,28 @@ class Model {
   step = 1.8;
   pallets = 0;
   price;
+  bridgesId = [
+    "1210100",
+    "1215100",
+    "1220100",
+    "1510700",
+    "1515700",
+    "1520700",
+    "1520325",
+    "1530325",
+    "2010400",
+    "2015400",
+    "2020800",
+    "2020400",
+    "2030185",
+    "2515350",
+    "2520110",
+    "2520350",
+    "2530150",
+    "3015300",
+    "3020750",
+    "3030100",
+  ];
   priceData = {
     my: 0,
     DZGI: {
@@ -240,10 +476,11 @@ class Model {
     },
   };
   factory = "DZGI";
-  isNonCash = false;
   payment = "nal";
   NCPersent;
   ourInner;
+  glay;
+  glayPrice;
   result = [];
   logistics = {
     type: "",
@@ -265,16 +502,18 @@ class Model {
     this.init();
   }
   init() {
-    // this.setParam("isNonCash", false);
     this.setParam("payment", "nal");
     this.setParam("factory", "DZGI");
+    this.setGlay("glay", 0);
+    this.setGlay("glayPrice", 300);
     this.setParam("height", this.height);
     this.setParam("width", this.width);
     this.setParam("lenght", this.lenght);
     this.setParam("density", this.density);
     this.setPrice(5960);
-    this.setTypeLogistics("glory");
+    this.setTypeLogistics("my");
     view.showCubes(this.cubes, this.pieces, this.pallets);
+    this.createBridgeBlock();
   }
   setParam(paramName, param) {
     this[`${paramName}`] = param;
@@ -282,7 +521,7 @@ class Model {
       this.setPrice(this.priceData[this.factory][param][this.payment]);
     view.setParam(paramName, param);
     this.setStep();
-    this.showResult()
+    this.showResult();
   }
   setStep() {
     if (this.lenght == 600) {
@@ -315,6 +554,12 @@ class Model {
     ).toFixed(2);
     this.pallets = this.cubes / this.step;
     view.showCubes(this.cubes, this.pieces, this.pallets);
+  }
+  setGlay(parName, val) {
+    console.log(val);
+    this[parName] = val;
+    view.showGlay(parName, val);
+    this.showResult();
   }
   calcPieces(pieces) {
     this.pieces = pieces;
@@ -390,10 +635,6 @@ class Model {
     }
     view.setPrice(this.price);
   }
-  setNC(isNonCash) {
-    this.isNonCash = isNonCash;
-    view.tooglePersentNC(this.isNonCash);
-  }
   setKm(km) {
     this.km = km;
 
@@ -409,22 +650,22 @@ class Model {
       p: this.price,
       pay: this.payment,
     });
-    this.showResult()
+    this.showResult();
   }
   deleteRow(idItem) {
     this.result = this.result.filter((el, i) => i != idItem);
-    this.showResult()
+    this.showResult();
   }
   addTransport(type) {
     this.logistics[`${type}`].counter += 1;
     view.showCount(type, this.logistics[`${type}`].counter);
-    this.showResult()
+    this.showResult();
   }
   removeTransport(type) {
     if (this.logistics[`${type}`].counter <= 0) return;
     this.logistics[`${type}`].counter -= 1;
     view.showCount(type, this.logistics[`${type}`].counter);
-    this.showResult()
+    this.showResult();
   }
   setMyLogistics(type, price) {
     this.logistics[`${type}`].price = price;
@@ -440,7 +681,37 @@ class Model {
     this.result[i].p = price;
   }
   showResult() {
-    view.showResult(this.result, this.logistics, this.payment)
+    let data = {
+      result: this.result,
+      payment: this.payment,
+      glay: this.glay,
+      glayPrice: this.glayPrice,
+      logistics: this.logistics,
+    };
+    view.showResult(data);
+  }
+  createBridgeBlock() {
+    view.createBridgeBlock(this.bridgesId);
+    this.showResult();
+  }
+  countAdd(id, count) {
+    if (count) bridges[id].count = count;
+    else bridges[id].count = bridges[id].count * 1 + 1;
+    this.createBridgeBlock();
+    this.showResult();
+  }
+  countRemove(id) {
+    if (bridges[id].count - 1 < 0) return;
+    bridges[id].count--;
+    this.createBridgeBlock();
+    this.showResult();
+  }
+  countInpShow(id, target) {
+    view.countInpShow(id, target);
+    this.showResult();
+  }
+  toggleModal(modalName) {
+    view.toggleModal(modalName);
   }
 }
 
@@ -453,11 +724,17 @@ class Controller {
   }
 
   init() {
-    document.addEventListener("click", this.combiner);
+    document.addEventListener("click", this.clickComb);
     document.addEventListener("input", this.inputData);
+    document.addEventListener("focusout", this.bridgeOut);
+  }
+  bridgeOut(e) {
+    let target = e.target;
+    let data = target.dataset;
+    if (data.countinp) model.countAdd(target.id, target.value);
   }
 
-  combiner(e) {
+  clickComb(e) {
     let target = e.target;
     let data = target.dataset;
     if (target.dataset.density) {
@@ -476,8 +753,6 @@ class Controller {
       model.setTypeLogistics(data.typelogistics);
     } else if (target.id === "btnAddRow") {
       model.addRow();
-    } else if (target.name === "NC") {
-      model.setNC(target.checked);
     } else if (data.iditem) {
       model.deleteRow(data.iditem);
     } else if (data.logisticsadd) {
@@ -488,6 +763,14 @@ class Controller {
       model.setPrice(data.btnsetprice);
     } else if (target.id === "addLogistics") {
       model.addLogistics();
+    } else if (data.countremove) {
+      model.countRemove(data.countremove);
+    } else if (data.countadd) {
+      model.countAdd(data.countadd);
+    } else if (data.count) {
+      model.countInpShow(data.count, target);
+    } else if (data.modal) {
+      model.toggleModal(data.modal);
     }
   }
   inputData(e) {
@@ -501,6 +784,10 @@ class Controller {
     } else if (name == "pieces") {
       e.preventDefault();
       model.calcPieces(value);
+    } else if (name == "glay") {
+      model.setGlay("glay", value);
+    } else if (name == "glayPrice") {
+      model.setGlay("glayPrice", value);
     } else if (name == "pallets") {
       e.preventDefault();
       model.calcPallets(value);
