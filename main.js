@@ -217,7 +217,7 @@ function copy(containerid) {
   document.body.removeChild(textarea);
 }
 function checkRange(start = 0, end = 100, num) {
-  if (num > start && num < end) return true;
+  if (num >= start && num < end) return true;
   return false;
 }
 
@@ -265,18 +265,29 @@ class Veiw {
     let rows = result.map((el, i) => {
       summ += el.c * el.p;
       return `<li>
-      <button data-idItem='${i}'>${el.d}</button>
-      <span> ${el.l}x${el.w}x${el.h} ${el.c} м3 - ${numberFormat.format(
+        <button class="btn btn-danger mb-2 input-group-text" data-idItem='${i}'>${
+        el.d
+      }</button>
+        <span class="mb-2"> ${el.l}x${el.w}x${el.h} ${el.c} м3 - ${numberFormat.format(
         el.c * el.p
       )}</span>
-      <input data-itemCube=${i} class="input__number input__number_result" type="number" value='${
+      <div class="input-group mb-2">
+      <span class="input-group-text">м3</span>
+        <input data-itemCube=${i} class="input__number input__number_result form-control" type="number" value='${
         el.c
       }'>
-        <input data-itemPrice=${i} class="input__number input__number_result" type="number" value='${numberFormat.format(
+          <input data-itemPrice=${i} class="input__number input__number_result form-control" type="number" value='${numberFormat.format(
         el.p
       )}'>
+      <span class="input-group-text">₽</span>
+      </div>
       </li>`;
     });
+    //     `<div class="input-group mb-3">
+    //   <span class="input-group-text">$</span>
+    //   <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+    //   <span class="input-group-text">.00</span>
+    // </div>`
     for (const key in bridges) {
       if (Object.hasOwnProperty.call(bridges, key)) {
         const bridge = bridges[key];
@@ -390,7 +401,6 @@ class Veiw {
       .classList.remove("hide");
   }
   toggleModal(modalName) {
-    debugger;
     document.querySelector("#" + modalName).classList.toggle("show");
   }
 }
