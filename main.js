@@ -523,7 +523,7 @@ class Model {
   glayPrice;
   result = [];
   logistics = {
-    type: "",
+    type: "my",
     truck: {
       price: 0,
       counter: 0,
@@ -561,6 +561,7 @@ class Model {
       this.setPrice(this.priceData[this.factory][param][this.payment]);
     view.setParam(paramName, param);
     this.setStep();
+    this.calcLogictics()
     this.showResult();
   }
   setStep() {
@@ -594,7 +595,7 @@ class Model {
         this.height) *
       1000
     ).toFixed(2);
-    this.pallets = this.cubes / this.step;
+    this.pallets = (this.cubes / this.step).toFixed(2);
     view.showCubes(this.cubes, this.pieces, this.pallets);
   }
   setGlay(parName, val) {
@@ -615,8 +616,9 @@ class Model {
     view.showCubes(this.cubes, this.pieces, this.pallets);
   }
   calcPallets(pieces) {
+    debugger
     this.pallets = pieces;
-    this.cubes = this.pallets * this.step;
+    this.cubes = (this.pallets * this.step).toFixed(2);
     this.pieces = (
       this.cubes /
       ((this.lenght / 1000) * (this.width / 1000) * (this.height / 1000))
