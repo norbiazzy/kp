@@ -1,4 +1,5 @@
 let a;
+let bufferText = "";
 let logisticsPrice = {
   glory: {
     manipulator: {
@@ -210,7 +211,9 @@ function copy(containerid) {
   textarea.id = "temp";
   textarea.style.height = 0;
   document.body.appendChild(textarea);
-  textarea.value = document.getElementById(containerid).innerText;
+  let text;
+  // textarea.value = document.getElementById(containerid).innerText;
+  textarea.value = bufferText;
   let selector = document.querySelector("#temp");
   selector.select();
   document.execCommand("copy");
@@ -245,9 +248,12 @@ class Veiw {
   }
   checkTypeLogistics(type) {
     this.field.querySelectorAll(`[data-typelogistics]`).forEach((el) => {
+      let kmRow = this.field.querySelector("#kmRow");
       el.dataset.typelogistics == type
         ? el.classList.add("active")
         : el.classList.remove("active");
+      if (type === "glory") kmRow.classList.remove("d-none");
+      else kmRow.classList.add("d-none");
     });
   }
   setPrice(price) {
@@ -262,15 +268,19 @@ class Veiw {
       logistics.manipulator.price * logistics.manipulator.counter +
       logistics.hitch.price * logistics.hitch.counter +
       glay * glayPrice;
+    bufferText = "";
     let rows = result.map((el, i) => {
+      let text = `${el.d} ${el.l}x${el.w}x${el.h} ${
+        el.c
+      } м3 - ${numberFormat.format(el.c * el.p)}`;
+      bufferText += text + "\n";
+
       summ += el.c * el.p;
       return `<li>
         <button class="btn btn-danger mb-2 input-group-text" data-idItem='${i}'>${
         el.d
       }</button>
-        <span class="mb-2"> ${el.l}x${el.w}x${el.h} ${el.c} м3 - ${numberFormat.format(
-        el.c * el.p
-      )}</span>
+        <span class="mb-2"> ${text}</span>
       <div class="input-group mb-2">
       <span class="input-group-text">м3</span>
         <input data-itemCube=${i} class="input__number input__number_result form-control" type="number" value='${
@@ -293,46 +303,66 @@ class Veiw {
         const bridge = bridges[key];
         let cost = bridge.price * bridge.count;
         summ = +cost + summ;
-        if (bridge.count > 0)
-          rows.push(
-            `<li>${bridge.name} x ${bridge.count} - ${numberFormat.format(
-              cost
-            )}  </li>`
-          );
+        if (bridge.count > 0) {
+          let text = `${bridge.name} x ${bridge.count} - ${numberFormat.format(
+            cost
+          )}`;
+          bufferText += text + "\n";
+          rows.push(`<li>${text}</li>`);
+        }
       }
     }
     let resultField = this.field.querySelector(".result");
     resultField.innerHTML = "";
     resultField.innerHTML = rows.join("");
-    if (glay > 0)
-      resultField.innerHTML += `<p>Клей 25 кг: ${glay} шт - ${
-        glayPrice * glay
-      }</p>`;
+    if (glay > 0) {
+      text = `Клей 25 кг: ${glay} шт - ${glayPrice * glay}`;
+      bufferText += text + "\n";
+      resultField.innerHTML += `<p>${text}</p>`;
+    }
     let resultLogField = this.field.querySelector(".resultLogistics");
     resultLogField.innerHTML = "";
-    let text = ``;
+    let textLogistic = ``;
     if (logistics.truck.counter) {
-      text += `<li>Доставка фурой: ${numberFormat.format(
+      let text = `Доставка фурой: ${numberFormat.format(
         logistics.truck.price
-      )} x ${logistics.truck.counter}</li>`;
+      )} x ${logistics.truck.counter}`;
+      bufferText += text + "\n";
+      textLogistic += `<li>${text}</li>`;
     }
     if (logistics.manipulator.counter) {
-      text += `<li>Доставка манипулятором: ${numberFormat.format(
+      let text = `Доставка манипулятором: ${numberFormat.format(
         logistics.manipulator.price
-      )} x ${logistics.manipulator.counter} </li>`;
+      )} x ${logistics.manipulator.counter}`;
+      bufferText += text + "\n";
+      textLogistic += `<li>${text} </li>`;
     }
     if (logistics.hitch.counter) {
-      text += `<li>Доставка манипулятором с прицепом: ${numberFormat.format(
+      let text = `Доставка манипулятором с прицепом: ${numberFormat.format(
         logistics.hitch.price
-      )} x ${logistics.hitch.counter} </li>`;
+      )} x ${logistics.hitch.counter}`;
+      bufferText += text + "\n";
+      textLogistic += `<li>${text}</li>`;
     }
-    resultLogField.innerHTML += `<p>${text}</p>`;
+    resultLogField.innerHTML += `<p>${textLogistic}</p>`;
+    let resultTotal = this.field.querySelector(".resultTotal");
+    let textTotal = "";
+    let textNds = "";
+    textTotal = `Итого: ${numberFormat.format(summ)}`;
 
-    this.field.querySelector(".resultTotal").innerHTML = `${
-      payment === "nds"
-        ? "<p>В том числе НДС 20%: " + numberFormat.format((summ / 120) * 20)
-        : ""
-    }<p>Итого: ${numberFormat.format(summ)}</p>`;
+    if (payment === "nds") {
+      textNds = `В том числе НДС 20%: " + ${numberFormat.format(
+        (summ / 120) * 20
+      )}`;
+      bufferText += textNds + "\n";
+      resultTotal.innerHTML = `
+      <p>В том числе НДС 20%: ${numberFormat.format((summ / 120) * 20)}
+      <p>Итого: ${numberFormat.format(summ)}</p>
+      `;
+    } else {
+      resultTotal.innerHTML = `<p>Итого: ${numberFormat.format(summ)}</p>`;
+    }
+    bufferText += textTotal + "\n";
   }
   showLogistics(truckPrice, manipulatorPrice, hitchPrice) {
     this.field.querySelector("[data-logicstics='truck']").value = truckPrice;
@@ -520,7 +550,7 @@ class Model {
     this.setParam("width", this.width);
     this.setParam("lenght", this.lenght);
     this.setParam("density", this.density);
-    this.setPrice(5960);
+    this.setPrice(5680);
     this.setTypeLogistics("my");
     view.showCubes(this.cubes, this.pieces, this.pallets);
     this.createBridgeBlock();
@@ -621,6 +651,11 @@ class Model {
         logisticsPrice[`${type}`].manipulator[`${pay}`][3];
       this.logistics.hitch.price = logisticsPrice[`${type}`].hitch[`${pay}`][3];
     } else if (checkRange(90, 120, this.km)) {
+      this.logistics.truck.price = logisticsPrice[`${type}`].truck[`${pay}`][4];
+      this.logistics.manipulator.price =
+        logisticsPrice[`${type}`].manipulator[`${pay}`][4];
+      this.logistics.hitch.price = logisticsPrice[`${type}`].hitch[`${pay}`][4];
+    } else {
       this.logistics.truck.price = logisticsPrice[`${type}`].truck[`${pay}`][4];
       this.logistics.manipulator.price =
         logisticsPrice[`${type}`].manipulator[`${pay}`][4];
