@@ -4,4 +4,13 @@ li {
 
 .calc {
   max-width: 500px;
+}
+
+.svg_edit {
+  width: 20px;
+  pointer-events: none;
+}
+
+.card {
+  border: none;
 }/*# sourceMappingURL=main.css.map */

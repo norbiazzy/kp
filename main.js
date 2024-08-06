@@ -270,27 +270,36 @@ class Veiw {
       glay * glayPrice;
     bufferText = "";
     let rows = result.map((el, i) => {
-      let text = `${el.d} ${el.l}x${el.w}x${el.h} ${
-        el.c
-      } м3 - ${numberFormat.format(el.c * el.p)}`;
-      bufferText += text + "\n";
+      let text = `${el.l}x${el.w}x${el.h} ${el.c} м3 - ${numberFormat.format(
+        el.c * el.p
+      )}`;
+      bufferText += `${el.d} ` + text + "\n";
 
       summ += el.c * el.p;
-      return `<li>
-        <button class="btn btn-danger mb-2 input-group-text" data-idItem='${i}'>${
-        el.d
-      }</button>
-        <span class="mb-2"> ${text}</span>
-      <div class="input-group mb-2">
-      <span class="input-group-text">м3</span>
-        <input data-itemCube=${i} class="input__number input__number_result form-control" type="number" value='${
+      return `
+      <li>
+        <div class="d-flex justify-content-between">
+          <span class="d-flex align-items-center">${el.d} ${text}</span>
+          <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${i}" aria-expanded="false" aria-controls="collapseExample">
+            <svg class="svg_edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"/></svg>
+          </button>
+        </div>
+        <div class="collapse" id="collapseExample${i}">
+          <div class="card card-body p-0">
+            <div class="input-group mb-2">
+              <span class="input-group-text">м3</span>
+              <input data-itemCube=${i} class="input__number input__number_result form-control" type="number" value='${
         el.c
       }'>
-          <input data-itemPrice=${i} class="input__number input__number_result form-control" type="number" value='${numberFormat.format(
+              <input data-itemPrice=${i} class="input__number input__number_result form-control" type="number" value='${numberFormat.format(
         el.p
       )}'>
-      <span class="input-group-text">₽</span>
-      </div>
+              <span class="input-group-text">₽</span>
+              <button class="btn btn-danger input-group-text" data-idItem='${i}'>
+              <svg class="svg_edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+            </div>
+          </div>
+        </div>
       </li>`;
     });
     //     `<div class="input-group mb-3">
@@ -316,7 +325,10 @@ class Veiw {
     resultField.innerHTML = "";
     resultField.innerHTML = rows.join("");
     if (glay > 0) {
-      text = `Клей 25 кг: ${glay} шт - ${glayPrice * glay}`;
+      let text = "";
+      text = `Клей 25 кг: ${glay} шт - ${numberFormat.format(
+        glayPrice * glay
+      )}`;
       bufferText += text + "\n";
       resultField.innerHTML += `<p>${text}</p>`;
     }
@@ -561,7 +573,7 @@ class Model {
       this.setPrice(this.priceData[this.factory][param][this.payment]);
     view.setParam(paramName, param);
     this.setStep();
-    this.calcLogictics()
+    this.calcLogictics();
     this.showResult();
   }
   setStep() {
@@ -616,7 +628,6 @@ class Model {
     view.showCubes(this.cubes, this.pieces, this.pallets);
   }
   calcPallets(pieces) {
-    debugger
     this.pallets = pieces;
     this.cubes = (this.pallets * this.step).toFixed(2);
     this.pieces = (
@@ -727,9 +738,12 @@ class Model {
     this.result[i].c = cube;
   }
   setItemPrice(price, i) {
+    debugger
     this.result[i].p = price;
+    console.log(this.result[i]);
   }
   showResult() {
+    debugger
     let data = {
       result: this.result,
       payment: this.payment,
@@ -775,12 +789,20 @@ class Controller {
   init() {
     document.addEventListener("click", this.clickComb);
     document.addEventListener("input", this.inputData);
-    document.addEventListener("focusout", this.bridgeOut);
+    document.addEventListener("focusout", this.focusout);
   }
   bridgeOut(e) {
+    debugger
     let target = e.target;
     let data = target.dataset;
     if (data.countinp) model.countAdd(target.id, target.value);
+  }
+  focusout(e) {
+    
+    let target = e.target;
+    let data = target.dataset;
+    if (data.countinp) model.countAdd(target.id, target.value);
+    // if (data.itemprice) model.countAdd(target.id, target.value);
   }
 
   clickComb(e) {
@@ -803,6 +825,7 @@ class Controller {
     } else if (target.id === "btnAddRow") {
       model.addRow();
     } else if (data.iditem) {
+      e.stopImmediatePropagation()
       model.deleteRow(data.iditem);
     } else if (data.logisticsadd) {
       model.addTransport(data.logisticsadd);
@@ -850,6 +873,7 @@ class Controller {
       e.preventDefault();
       model.setMyLogistics(data.logicstics, value);
     } else if (data.itemprice) {
+      debugger
       e.preventDefault();
       model.setItemPrice(value, data.itemprice);
       e.target.addEventListener("blur", showRes);
@@ -862,6 +886,7 @@ class Controller {
 }
 
 function showRes(e) {
+  debugger
   model.showResult();
   e.target.removeEventListener("blur", showRes, true);
 }
