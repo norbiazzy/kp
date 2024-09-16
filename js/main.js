@@ -4,15 +4,15 @@ let logisticsPrice = {
   glory: {
     manipulator: {
       nal: [15200, 16200, 17200, 18200, 19200],
-      nds: [16400, 17400, 18400, 19400, 20400],
+      nds: [17100, 18100, 19200, 20200, 21300],
     },
     truck: {
       nal: [15200, 16200, 17200, 18200, 19200],
-      nds: [16400, 17900, 18900, 19900, 20900],
+      nds: [17100, 18700, 19700, 20696, 21800],
     },
     hitch: {
       nal: [21200, 22300, 24700, 26000, 27700],
-      nds: [22400, 24900, 26900, 28400, 30400],
+      nds: [23300, 25900, 28000, 29600, 31700],
     },
   },
   tiana: {
@@ -270,13 +270,12 @@ class Veiw {
       glay * glayPrice;
     bufferText = "";
     let rows = result.map((el, i) => {
-      let text = `${el.l}x${el.w}x${el.h} ${el.c} м3 - ${numberFormat.format(
-        el.c * el.p
-      )}`;
+      let text = `${el.l}x${el.w}x${el.h} - ${el.c} м3 * ${
+        el.p
+      } ₽ - ${numberFormat.format(el.c * el.p)}`;
       bufferText += `${el.d} ` + text + "\n";
 
       summ += el.c * el.p;
-      ;
       return `
       <li>
         <div class="d-flex justify-content-between">
@@ -310,9 +309,9 @@ class Veiw {
         let cost = bridge.price * bridge.count;
         summ = +cost + summ;
         if (bridge.count > 0) {
-          let text = `${bridge.name} x ${bridge.count} - ${numberFormat.format(
-            cost
-          )}`;
+          let text = `${bridge.name} - ${bridge.count} шт * ${
+            bridge.price
+          } ₽ - ${numberFormat.format(cost)}`;
           bufferText += text + "\n";
           rows.push(`<li>${text}</li>`);
         }
@@ -323,10 +322,12 @@ class Veiw {
     resultField.innerHTML = rows.join("");
     if (glay > 0) {
       let text = "";
-      text = `Клей 25 кг: ${glay} шт - ${numberFormat.format(
+      text = `Клей 25 кг: ${glay} шт * ${glayPrice} ₽ - ${numberFormat.format(
         glayPrice * glay
       )}`;
-      bufferText += text + "\n";
+      bufferText +=
+        `Клей 25 кг: ${glay} шт - ${numberFormat.format(glayPrice * glay)}` +
+        "\n";
       resultField.innerHTML += `<p>${text}</p>`;
     }
     let resultLogField = this.field.querySelector(".resultLogistics");
@@ -419,7 +420,10 @@ class Veiw {
       let row = `      
   <li class="row">
     <div class="col">
-    <p>${bridge.short}</p>
+      <div class="d-flex justify-content-between">
+        <span>${bridge.short}</span>
+        <span>${bridge.price} ₽</span>
+      </div>
       <div class="input-group mb-3">
         <button class="btn btn-outline-secondary w-auto" type="button" data-countRemove="${id}">-</button>
         <input type="text" class="form-control" id="${id}" data-countInp="${id}" value="${bridge.count}" aria-label="Example text with button addon"
@@ -620,7 +624,7 @@ class Model {
       (this.width / 1000) *
       (this.height / 1000) *
       this.pieces
-    ).toFixed(3);
+    ).toFixed(2);
     this.pallets = (this.cubes / this.step).toFixed(2);
     view.showCubes(this.cubes, this.pieces, this.pallets);
   }
@@ -735,12 +739,10 @@ class Model {
     this.result[i].c = cube;
   }
   setItemPrice(price, i) {
-    ;
     this.result[i].p = price;
     console.log(this.result[i]);
   }
   showResult() {
-    ;
     let data = {
       result: this.result,
       payment: this.payment,
@@ -787,9 +789,11 @@ class Controller {
     document.addEventListener("click", this.clickComb);
     document.addEventListener("input", this.inputData);
     document.addEventListener("focusout", this.focusout);
+    addEventListener("keydown", (event) => {
+      console.log(event);
+    });
   }
   bridgeOut(e) {
-    ;
     let target = e.target;
     let data = target.dataset;
     if (data.countinp) model.countAdd(target.id, target.value);
@@ -798,13 +802,50 @@ class Controller {
     let target = e.target;
     let data = target.dataset;
     if (data.countinp) model.countAdd(target.id, target.value);
-    // if (data.itemprice) model.countAdd(target.id, target.value);
+    if (target.type === "radio") return;
+
+    // let target = e.target;
+    let value = target.value;
+    let name = target.name;
+    // let data = target.dataset;
+    // if (value === "") return;
+
+    if (name == "cube") {
+      model.calcCube(value);
+    } else if (name == "pieces") {
+      e.preventDefault();
+      model.calcPieces(value);
+    } else if (name == "glay") {
+      model.setGlay("glay", value);
+    } else if (name == "glayPrice") {
+      model.setGlay("glayPrice", value);
+    } else if (name == "pallets") {
+      e.preventDefault();
+      model.calcPallets(value);
+    } else if (name == "km") {
+      e.preventDefault();
+      model.setKm(value);
+    } else if (name == "price") {
+      e.preventDefault();
+      model.setPrice(value);
+    // } else if (data.logicstics) {
+    //   e.preventDefault();
+    //   model.setMyLogistics(data.logicstics, value);
+    } else if (data.itemprice) {
+      e.preventDefault();
+      model.setItemPrice(value, data.itemprice);
+      e.target.addEventListener("blur", showRes);
+    } else if (data.itemcube) {
+      e.preventDefault();
+      model.setItemCube(value, data.itemcube);
+      e.target.addEventListener("blur", showRes);
+    }
   }
 
   clickComb(e) {
     let target = e.target;
     let data = target.dataset;
-    
+
     if (target.dataset.density) {
       model.setParam("density", data.density);
     } else if (data.lenght) {
@@ -842,28 +883,28 @@ class Controller {
       model.toggleModal(data.modal);
     }
   }
+
   inputData(e) {
-    console.log(e.data);
-    if (e.data === ",") e.data = ".";
     let target = e.target;
     let value = target.value;
     let name = target.name;
     let data = target.dataset;
     if (value === "") return;
-    ;
-    if (name == "cube") {
-      model.calcCube(value);
-    } else if (name == "pieces") {
-      e.preventDefault();
-      model.calcPieces(value);
-    } else if (name == "glay") {
-      model.setGlay("glay", value);
-    } else if (name == "glayPrice") {
-      model.setGlay("glayPrice", value);
-    } else if (name == "pallets") {
-      e.preventDefault();
-      model.calcPallets(value);
-    } else if (name == "km") {
+
+    // if (name == "cube") {
+      // model.calcCube(value);
+    // } else if (name == "pieces") {
+      // e.preventDefault();
+      // model.calcPieces(value);
+    // } else if (name == "glay") {
+    //   model.setGlay("glay", value);
+    // } else if (name == "glayPrice") {
+    //   model.setGlay("glayPrice", value);
+    // } else if (name == "pallets") {
+      // e.preventDefault();
+      // model.calcPallets(value);
+    // } else 
+    if (name == "km") {
       e.preventDefault();
       model.setKm(value);
     } else if (name == "price") {
@@ -873,7 +914,6 @@ class Controller {
       e.preventDefault();
       model.setMyLogistics(data.logicstics, value);
     } else if (data.itemprice) {
-      ;
       e.preventDefault();
       model.setItemPrice(value, data.itemprice);
       e.target.addEventListener("blur", showRes);
@@ -886,7 +926,6 @@ class Controller {
 }
 
 function showRes(e) {
-  ;
   model.showResult();
   e.target.removeEventListener("blur", showRes, true);
 }
