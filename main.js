@@ -326,7 +326,7 @@ class Veiw {
     resultField.innerHTML = rows.join("");
     if (glay > 0) {
       let text = "";
-      text = `Клей 25 кг: ${glay} шт - ${numberFormat.format(
+      text = `Клей 25 кг: ${glay} шт * ${numberFormat.format(glayPrice)} - ${numberFormat.format(
         glayPrice * glay
       )}`;
       bufferText += text + "\n";
@@ -363,7 +363,7 @@ class Veiw {
     textTotal = `Итого: ${numberFormat.format(summ)}`;
 
     if (payment === "nds") {
-      textNds = `В том числе НДС 20%: " + ${numberFormat.format(
+      textNds = `В том числе НДС 20%: ${numberFormat.format(
         (summ / 120) * 20
       )}`;
       bufferText += textNds + "\n";
@@ -486,44 +486,44 @@ class Model {
     my: 0,
     DZGI: {
       D400: {
-        nal: 6975,
-        nds: 7800,
+        nal: 6464,
+        nds: 7640,
       },
       D500: {
-        nal: 5860,
-        nds: 6560,
+        nal: 4690,
+        nds: 5542,
       },
       D600: {
-        nal: 5860,
-        nds: 6560,
+        nal: 4690,
+        nds: 5542,
       },
     },
     SK: {
       D400: {
-        nal: 6975,
-        nds: 7800,
+        nal: 6550 ,
+        nds: 7740,
       },
       D500: {
-        nal: 5960,
-        nds: 6660,
+        nal: 4770 ,
+        nds: 5641,
       },
       D600: {
-        nal: 5960,
-        nds: 6660,
+        nal: 4770 ,
+        nds: 5641,
       },
     },
     MY: {
       D400: {
-        nal: 6975,
-        nds: 7800,
+        nal: 6294 ,
+        nds: 7440,
       },
       D500: {
-        nal: 5800,
-        nds: 6460,
+        nal: 4520 ,
+        nds: 5342,
       },
       D600: {
-        nal: 5800,
-        nds: 6460,
+        nal: 4520 ,
+        nds: 5342,
       },
     },
   };
