@@ -326,9 +326,9 @@ class Veiw {
     resultField.innerHTML = rows.join("");
     if (glay > 0) {
       let text = "";
-      text = `Клей 25 кг: ${glay} шт * ${numberFormat.format(glayPrice)} - ${numberFormat.format(
-        glayPrice * glay
-      )}`;
+      text = `Клей 25 кг: ${glay} шт * ${numberFormat.format(
+        glayPrice
+      )} - ${numberFormat.format(glayPrice * glay)}`;
       bufferText += text + "\n";
       resultField.innerHTML += `<p>${text}</p>`;
     }
@@ -500,29 +500,29 @@ class Model {
     },
     SK: {
       D400: {
-        nal: 6550 ,
+        nal: 6550,
         nds: 7740,
       },
       D500: {
-        nal: 4770 ,
+        nal: 4770,
         nds: 5641,
       },
       D600: {
-        nal: 4770 ,
+        nal: 4770,
         nds: 5641,
       },
     },
     MY: {
       D400: {
-        nal: 6294 ,
+        nal: 6294,
         nds: 7440,
       },
       D500: {
-        nal: 4520 ,
+        nal: 4520,
         nds: 5342,
       },
       D600: {
-        nal: 4520 ,
+        nal: 4520,
         nds: 5342,
       },
     },
@@ -562,7 +562,7 @@ class Model {
     this.setParam("width", this.width);
     this.setParam("lenght", this.lenght);
     this.setParam("density", this.density);
-    this.setPrice(5680);
+    this.setPrice(0);
     this.setTypeLogistics("my");
     view.showCubes(this.cubes, this.pieces, this.pallets);
     this.createBridgeBlock();
@@ -611,10 +611,13 @@ class Model {
     view.showCubes(this.cubes, this.pieces, this.pallets);
   }
   setGlay(parName, val) {
-    console.log(val);
     this[parName] = val;
     view.showGlay(parName, val);
     this.showResult();
+  }
+  calcGlay() {
+    let allCubes = this.result.reduce((acc, curPos) => (acc += curPos.c), 0);
+    if (allCubes > 0) this.setGlay("glay", Math.ceil(allCubes * 1.15));
   }
   calcPieces(pieces) {
     this.pieces = pieces;
@@ -738,12 +741,12 @@ class Model {
     this.result[i].c = cube;
   }
   setItemPrice(price, i) {
-    debugger
+    debugger;
     this.result[i].p = price;
     console.log(this.result[i]);
   }
   showResult() {
-    debugger
+    debugger;
     let data = {
       result: this.result,
       payment: this.payment,
@@ -792,13 +795,12 @@ class Controller {
     document.addEventListener("focusout", this.focusout);
   }
   bridgeOut(e) {
-    debugger
+    debugger;
     let target = e.target;
     let data = target.dataset;
     if (data.countinp) model.countAdd(target.id, target.value);
   }
   focusout(e) {
-    
     let target = e.target;
     let data = target.dataset;
     if (data.countinp) model.countAdd(target.id, target.value);
@@ -825,7 +827,7 @@ class Controller {
     } else if (target.id === "btnAddRow") {
       model.addRow();
     } else if (data.iditem) {
-      e.stopImmediatePropagation()
+      e.stopImmediatePropagation();
       model.deleteRow(data.iditem);
     } else if (data.logisticsadd) {
       model.addTransport(data.logisticsadd);
@@ -843,6 +845,8 @@ class Controller {
       model.countInpShow(data.count, target);
     } else if (data.modal) {
       model.toggleModal(data.modal);
+    } else if (data.calcgaly) {
+      model.calcGlay();
     }
   }
   inputData(e) {
@@ -873,7 +877,7 @@ class Controller {
       e.preventDefault();
       model.setMyLogistics(data.logicstics, value);
     } else if (data.itemprice) {
-      debugger
+      debugger;
       e.preventDefault();
       model.setItemPrice(value, data.itemprice);
       e.target.addEventListener("blur", showRes);
@@ -886,7 +890,7 @@ class Controller {
 }
 
 function showRes(e) {
-  debugger
+  debugger;
   model.showResult();
   e.target.removeEventListener("blur", showRes, true);
 }
