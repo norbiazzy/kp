@@ -41,6 +41,9 @@
       <div class="col">
         <button class="btn w-100 btn-secondary" data-lenght="625">625</button>
       </div>
+      <div class="col">
+        <button class="btn w-100 btn-secondary" data-lenght="500">500</button>
+      </div>
     </div>
     <div class="row mb-2">
       <div class="col"><button class="btn w-100 btn-secondary" data-width="400">400</button></div>
@@ -132,8 +135,6 @@
 
     <div class="row mb-2">
       <div class="col"><button class="mb-0 btn w-100 btn-warning" data-typeLogistics="glory">Триумф</button></div>
-      <div class="col d-none"><button class="hide mb-0 btn w-100 btn-warning" data-typeLogistics="tiana">Тиана</button>
-      </div>
       <div class="col"><button class="mb-0 btn w-100 btn-warning" data-typeLogistics="my">Своя</button></div>
     </div>
     <div class="row mb-2" id="kmRow">
@@ -228,17 +229,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="col"><button class="btn w-100 mb-2  btn-danger" onclick="reload()">Очистить</button> </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <!-- <button class="btn w-100 mb-2  btn-info" data-modal="bridge" id="bridgeModal">Перемычки</button> -->
-        <button type="button" class="btn w-100 mb-2  btn-primary" data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop">
-          Перемычки
-        </button>
-
+      <div class="col"><button class="btn w-100 mb-2  btn-danger" data-calcGaly="calc0">Удалить клей</button>
       </div>
+  </div>
+  <div class="row">
+    <div class="col"><button class="btn w-100 mb-2  btn-danger" onclick="reload()">Очистить</button> </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <!-- <button class="btn w-100 mb-2  btn-info" data-modal="bridge" id="bridgeModal">Перемычки</button> -->
+      <button type="button" class="btn w-100 mb-2  btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Перемычки
+      </button>
+
     </div>
   </div>
 
